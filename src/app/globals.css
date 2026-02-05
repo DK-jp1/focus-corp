@@ -1,26 +1,106 @@
+/* Google Fonts: Noto Sans JP */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* カスタムテーマ定義 */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-navy: #0a1628;
+  --color-navy-light: #0f1f3d;
+  --color-accent: #3B82F6;
+  --color-accent-hover: #2563EB;
+  --color-background: #ffffff;
+  --color-foreground: #0a1628;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--color-foreground);
+  background: var(--color-background);
+  overflow-x: hidden;
+}
+
+/* スクロールアニメーション: ふわっと表示 */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 順番にふわっと表示（チェックリスト用） */
+.fade-in-stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-stagger.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* スクロール促す矢印アニメーション */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* カウントアップ数字 */
+.count-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* アコーディオン */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.accordion-content.open {
+  max-height: 300px;
+}
+
+/* CTAボタンホバーエフェクト */
+.cta-button {
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* サービスカードホバー */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* スムーススクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* セレクションカラー */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: inherit;
 }
