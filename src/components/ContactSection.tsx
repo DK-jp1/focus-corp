@@ -22,8 +22,7 @@ const INITIAL_FORM: FormData = {
 
 /**
  * セクション17：お問い合わせ
- * 背景：ダークネイビー / テキスト：白
- * Instagram誘導とフォーム並列
+ * section-dark + glass-card + gradient cta-button
  */
 export default function ContactSection() {
   const [form, setForm] = useState<FormData>(INITIAL_FORM);
@@ -42,14 +41,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-navy py-24 md:py-32 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="section-dark section-glow-border corner-glow-bl py-24 md:py-32 px-6">
+      <div className="relative z-10 max-w-4xl mx-auto">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-8">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Contact
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 text-shadow-sm">
             お問い合わせ
           </h2>
           <div className="decorative-line" />
@@ -66,9 +65,9 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* 左：Instagram誘導 */}
           <div className="fade-in-up flex flex-col items-center justify-center text-center">
-            <div className="bg-navy-light border border-white/10 rounded-2xl p-8 sm:p-10 w-full">
+            <div className="glass-card rounded-2xl p-8 sm:p-10 w-full">
               <p className="text-white text-lg font-medium mb-6">
-                📩 Instagram DMで相談
+                Instagram DMで相談
               </p>
               <p className="text-gray-400 font-light mb-6">
                 「相談希望」と送るだけでOK
@@ -202,7 +201,7 @@ export default function ContactSection() {
                 <div className="text-center pt-2">
                   <button
                     type="submit"
-                    className="cta-button bg-accent hover:bg-accent-hover text-white font-medium text-base sm:text-lg px-12 py-4 rounded-full w-full sm:w-auto"
+                    className="cta-button text-white font-medium text-base sm:text-lg px-12 py-4 rounded-full w-full sm:w-auto"
                   >
                     送信する
                   </button>

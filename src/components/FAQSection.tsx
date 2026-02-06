@@ -33,8 +33,7 @@ const FAQ_ITEMS = [
 
 /**
  * セクション15：FAQ
- * 背景：ダークネイビー / テキスト：白
- * アコーディオン形式、Q太字、開閉アイコン（＋/−）
+ * section-dark + glass-card + アコーディオン
  */
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -44,14 +43,14 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="bg-navy py-24 md:py-32 px-6">
-      <div className="max-w-3xl mx-auto">
+    <section id="faq" className="section-dark section-glow-border corner-glow-bl py-24 md:py-32 px-6">
+      <div className="relative z-10 max-w-3xl mx-auto">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             FAQ
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 text-shadow-sm">
             よくある質問
           </h2>
           <div className="decorative-line" />
@@ -62,7 +61,7 @@ export default function FAQSection() {
           {FAQ_ITEMS.map((item, index) => (
             <div
               key={index}
-              className="fade-in-stagger border border-white/10 rounded-xl overflow-hidden"
+              className="fade-in-stagger glass-card rounded-xl overflow-hidden"
               data-delay={index * 100}
             >
               {/* 質問部分 */}
@@ -75,7 +74,7 @@ export default function FAQSection() {
                   Q. {item.question}
                 </span>
                 {/* ＋/− アイコン */}
-                <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-accent text-xl font-light transition-transform duration-300">
+                <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center gradient-text text-xl font-light transition-transform duration-300">
                   {openIndex === index ? "−" : "＋"}
                 </span>
               </button>

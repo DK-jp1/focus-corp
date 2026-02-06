@@ -1,7 +1,6 @@
 /**
  * セクション11：選ばれる理由
- * 背景：ダークネイビー / テキスト：白
- * 縦並び、番号大きく、ふわっと表示
+ * section-dark + gradient-text番号 + corner-glow
  */
 
 // 選ばれる理由データ定義
@@ -46,14 +45,14 @@ const REASONS: ReasonItem[] = [
 
 export default function WhyFocusSection() {
   return (
-    <section id="why-focus" className="bg-navy py-24 md:py-32 px-6">
-      <div className="max-w-3xl mx-auto text-white">
+    <section id="why-focus" className="section-dark section-glow-border corner-glow-bl py-24 md:py-32 px-6">
+      <div className="relative z-10 max-w-3xl mx-auto text-white">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Why focus?
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-black mb-4 text-shadow-sm">
             選ばれる5つの理由
           </h2>
           <div className="decorative-line" />
@@ -69,7 +68,7 @@ export default function WhyFocusSection() {
             >
               {/* 番号 */}
               <div className="flex-shrink-0">
-                <span className="text-4xl md:text-5xl font-bold text-accent opacity-80">
+                <span className="text-4xl md:text-5xl font-black gradient-text">
                   {reason.number}
                 </span>
               </div>
@@ -79,7 +78,7 @@ export default function WhyFocusSection() {
                 <h3 className="text-xl md:text-2xl font-bold mb-3">
                   {reason.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed font-light">
+                <p className="text-gray-400 leading-relaxed font-light">
                   {reason.description}
                 </p>
               </div>

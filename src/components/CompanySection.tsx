@@ -1,7 +1,6 @@
 /**
  * セクション16：会社概要
- * 背景：白 / テキスト：ダークネイビー
- * 左ラベル、右内容のテーブル
+ * section-light + corner-glow
  */
 
 // 会社情報データ定義
@@ -29,27 +28,27 @@ const COMPANY_INFO: CompanyInfo[] = [
 
 export default function CompanySection() {
   return (
-    <section id="company" className="bg-white py-24 md:py-32 px-6">
-      <div className="max-w-3xl mx-auto">
+    <section id="company" className="section-light section-glow-border corner-glow-tr py-24 md:py-32 px-6">
+      <div className="relative z-10 max-w-3xl mx-auto">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Company
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-navy mb-4">
             会社概要
           </h2>
           <div className="decorative-line" />
         </div>
 
         {/* テーブル */}
-        <div className="fade-in-up">
+        <div className="fade-in-up glass-card-light rounded-2xl p-8 sm:p-12">
           <table className="w-full">
             <tbody>
               {COMPANY_INFO.map((info, index) => (
                 <tr
                   key={index}
-                  className="border-b border-gray-100 last:border-b-0"
+                  className="border-b border-navy/10 last:border-b-0"
                 >
                   {/* ラベル */}
                   <th className="text-left text-sm text-gray-500 font-medium py-5 pr-8 align-top w-32 sm:w-40">

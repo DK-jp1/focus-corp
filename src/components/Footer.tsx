@@ -2,12 +2,14 @@ import Image from "next/image";
 
 /**
  * フッター
- * 背景：#000 / テキスト：白
- * シンプルに1〜2行
+ * 背景：#000 / グラデーション区切り線
  */
 export default function Footer() {
   return (
-    <footer className="bg-black py-12 px-6">
+    <footer className="bg-black py-12 px-6 relative">
+      {/* 上部のグラデーション区切り線 */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+
       <div className="max-w-5xl mx-auto">
         {/* 上部: ロゴ + リンク */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">

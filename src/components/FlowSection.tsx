@@ -1,7 +1,6 @@
 /**
  * セクション13：導入の流れ
- * 背景：ダークネイビー / テキスト：白
- * 横並び（スマホ縦）、各ステップを線でつなぐ、番号は丸で囲む
+ * section-dark + glass-card + グラデーション番号
  */
 
 // ステップデータ定義
@@ -45,14 +44,14 @@ const STEPS: StepItem[] = [
 
 export default function FlowSection() {
   return (
-    <section id="flow" className="bg-navy py-24 md:py-32 px-6">
-      <div className="max-w-6xl mx-auto text-white">
+    <section id="flow" className="section-dark section-glow-border corner-glow-tr py-24 md:py-32 px-6">
+      <div className="relative z-10 max-w-6xl mx-auto text-white">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Flow
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">導入の流れ</h2>
+          <h2 className="text-3xl md:text-4xl font-black mb-4 text-shadow-sm">導入の流れ</h2>
           <div className="decorative-line" />
         </div>
 
@@ -61,14 +60,14 @@ export default function FlowSection() {
           {STEPS.map((step, index) => (
             <div
               key={index}
-              className="fade-in-stagger relative text-center"
+              className="fade-in-stagger glass-card rounded-2xl p-6 relative text-center"
               data-delay={index * 150}
             >
-              {/* 番号（丸で囲む） */}
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-accent text-accent mb-4">
-                <span className="text-lg font-bold">STEP</span>
-              </div>
-              <p className="text-3xl font-bold text-accent mb-3">{step.number}</p>
+              {/* STEP ラベル */}
+              <p className="text-xs tracking-[0.2em] text-white/40 uppercase mb-2">Step</p>
+
+              {/* 番号 */}
+              <p className="text-3xl font-black gradient-text mb-3">{step.number}</p>
 
               {/* タイトル */}
               <h3 className="text-lg font-bold mb-3">{step.title}</h3>
@@ -80,8 +79,8 @@ export default function FlowSection() {
 
               {/* 接続線（デスクトップ、最後以外） */}
               {index < STEPS.length - 1 && (
-                <div className="hidden lg:block absolute top-8 -right-4 w-8">
-                  <div className="w-full h-0.5 bg-accent/30" />
+                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 -translate-y-1/2">
+                  <div className="w-full h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-40" />
                 </div>
               )}
             </div>
