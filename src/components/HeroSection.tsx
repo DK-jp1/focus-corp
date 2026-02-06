@@ -1,28 +1,43 @@
 /**
- * ファーストビュー: メインコピー、サブコピー、CTAボタン
+ * セクション1：ファーストビュー
+ * ダークネイビー背景 + 微細グラデーション
  */
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-navy via-navy-light to-navy text-white px-6 overflow-hidden">
-      {/* 背景の微細なグラデーションオーバーレイ */}
+    <section
+      id="hero"
+      className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #0a1628 0%, #0f1f3d 50%, #0a1628 100%)",
+      }}
+    >
+      {/* 微細グラデーションオーバーレイ */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.08),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.05),transparent_50%)]" />
 
-      <div className="relative z-10 text-center max-w-4xl mx-auto">
+      {/* ロゴ（左上） */}
+      <div className="absolute top-6 left-6 md:top-8 md:left-10 z-10">
+        <span className="text-2xl font-bold tracking-wider">
+          focus<span className="text-accent">.</span>
+        </span>
+      </div>
+
+      {/* メインコンテンツ */}
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         {/* メインコピー */}
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-8">
           AIで、働き方が変わる。
         </h1>
 
         {/* サブコピー */}
         <p className="text-base sm:text-lg md:text-xl text-white/70 font-light mb-4 leading-relaxed">
           長崎県の個人事業主・サロン・企業向け
-          <br className="sm:hidden" />
-          {" "}AI導入・業務効率化・ウェブサイト制作
+          <br />
+          AI導入・業務効率化・ウェブサイト制作
         </p>
 
-        {/* キャッチコピー */}
-        <p className="text-lg sm:text-xl md:text-2xl font-medium text-accent mb-10">
+        {/* キャッチ */}
+        <p className="text-lg sm:text-xl md:text-2xl font-medium text-accent mb-12">
           月20万円の人件費を、月2万円に。
         </p>
 
@@ -35,7 +50,7 @@ export default function HeroSection() {
         </a>
       </div>
 
-      {/* スクロール矢印 */}
+      {/* スクロール促す矢印アニメーション */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce-slow">
         <svg
           width="24"

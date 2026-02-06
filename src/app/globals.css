@@ -7,10 +7,14 @@
 @theme inline {
   --color-navy: #0a1628;
   --color-navy-light: #0f1f3d;
+  --color-navy-gradient: #111d33;
   --color-accent: #3B82F6;
   --color-accent-hover: #2563EB;
+  --color-accent-light: rgba(59, 130, 246, 0.15);
   --color-background: #ffffff;
   --color-foreground: #0a1628;
+  --color-campaign-bg: #1a2744;
+  --color-price-red: #EF4444;
 }
 
 body {
@@ -18,9 +22,17 @@ body {
   color: var(--color-foreground);
   background: var(--color-background);
   overflow-x: hidden;
+  font-weight: 300;
 }
 
-/* スクロールアニメーション: ふわっと表示 */
+/* スムーススクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========== スクロールアニメーション ========== */
+
+/* ふわっと表示（上から） */
 .fade-in-up {
   opacity: 0;
   transform: translateY(30px);
@@ -32,7 +44,7 @@ body {
   transform: translateY(0);
 }
 
-/* 順番にふわっと表示（チェックリスト用） */
+/* 順番にふわっと表示（チェックリスト・リスト用） */
 .fade-in-stagger {
   opacity: 0;
   transform: translateY(20px);
@@ -44,7 +56,7 @@ body {
   transform: translateY(0);
 }
 
-/* スクロール促す矢印アニメーション */
+/* ========== ファーストビュー矢印アニメーション ========== */
 @keyframes bounce-slow {
   0%, 100% {
     transform: translateY(0);
@@ -58,12 +70,12 @@ body {
   animation: bounce-slow 2s ease-in-out infinite;
 }
 
-/* カウントアップ数字 */
+/* ========== カウントアップ数字 ========== */
 .count-number {
   font-variant-numeric: tabular-nums;
 }
 
-/* アコーディオン */
+/* ========== アコーディオン ========== */
 .accordion-content {
   max-height: 0;
   overflow: hidden;
@@ -71,10 +83,10 @@ body {
 }
 
 .accordion-content.open {
-  max-height: 300px;
+  max-height: 500px;
 }
 
-/* CTAボタンホバーエフェクト */
+/* ========== CTAボタンホバーエフェクト ========== */
 .cta-button {
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
@@ -84,23 +96,77 @@ body {
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
-/* サービスカードホバー */
+/* ========== サービスカードホバー ========== */
 .service-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* スムーススクロール */
-html {
-  scroll-behavior: smooth;
+/* ========== 装飾ライン ========== */
+.decorative-line {
+  width: 60px;
+  height: 2px;
+  background: var(--color-accent);
+  margin: 0 auto;
 }
 
-/* セレクションカラー */
+/* ========== セクション区切り線 ========== */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.3), transparent);
+  margin: 3rem 0;
+}
+
+/* ========== 導入フロー接続線 ========== */
+.flow-connector {
+  position: relative;
+}
+
+.flow-connector::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1rem;
+  width: 2rem;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.flow-connector:last-child::after {
+  display: none;
+}
+
+/* ========== 打ち消し線 ========== */
+.line-through-gray {
+  text-decoration: line-through;
+  color: #9CA3AF;
+}
+
+/* ========== セレクションカラー ========== */
 ::selection {
   background-color: rgba(59, 130, 246, 0.3);
   color: inherit;
+}
+
+/* ========== スクロールバーカスタマイズ ========== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-hover);
 }

@@ -1,84 +1,107 @@
-/** サービスデータ */
-const SERVICES = [
+/**
+ * セクション9：サービス内容
+ * 背景：ダークネイビー / テキスト：白
+ * 4カード横並び（スマホ縦）、番号大きく、ホバーで浮く
+ */
+
+// サービスデータ定義
+interface ServiceItem {
+  number: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+const SERVICES: ServiceItem[] = [
   {
+    number: "01",
+    title: "ウェブサイト・ホームページ制作",
+    description:
+      "事業の顔となるウェブサイトを構築。24時間、あなたのビジネスを届けます。",
     icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
         <rect x="3" y="3" width="18" height="18" rx="2" />
         <line x1="3" y1="9" x2="21" y2="9" />
         <line x1="9" y1="21" x2="9" y2="9" />
       </svg>
     ),
-    title: "ウェブサイト・\nホームページ制作",
-    description:
-      "集客に強いデザインと高速表示。スマホ対応は当たり前。お客様のビジネスに最適なサイトを構築します。",
   },
   {
+    number: "02",
+    title: "チャットボット構築",
+    description:
+      "御社専用のAIチャットボットを作成。24時間、自動で顧客対応が可能に。",
     icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
       </svg>
     ),
-    title: "チャットボット構築",
-    description:
-      "AIチャットボットで24時間自動応答。予約受付・FAQ対応を自動化し、業務負担を大幅に削減します。",
   },
   {
+    number: "03",
+    title: "ショート動画制作",
+    description:
+      "SNSで目を引く高クオリティな動画を制作。Instagram、TikTok、YouTubeに対応。",
     icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
         <polygon points="23 7 16 12 23 17 23 7" />
         <rect x="1" y="5" width="15" height="14" rx="2" />
       </svg>
     ),
-    title: "ショート動画制作",
-    description:
-      "TikTok・Instagram Reels向けの動画を企画から制作まで。SNSでの認知拡大をサポートします。",
   },
   {
+    number: "04",
+    title: "業務効率化ツール構築",
+    description:
+      "ヒアリングから最適なAIツールを設計・構築。予約受付、顧客フォロー、SNS投稿など煩雑な業務を自動化します。",
     icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
         <path d="M2 17l10 5 10-5" />
         <path d="M2 12l10 5 10-5" />
       </svg>
     ),
-    title: "業務効率化ツール構築",
-    description:
-      "AIを活用した業務自動化ツールを開発。日報作成、データ入力、スケジュール管理などを効率化します。",
   },
-] as const;
+];
 
-/**
- * サービス内容セクション: 4カード横並び
- */
 export default function ServicesSection() {
   return (
-    <section className="bg-white py-24 sm:py-32 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="services" className="bg-navy py-24 md:py-32 px-6">
+      <div className="max-w-6xl mx-auto text-white">
         {/* 見出し */}
-        <div className="text-center mb-16">
-          <p className="fade-in-up text-sm tracking-[0.3em] text-accent font-medium uppercase mb-4">
+        <div className="fade-in-up text-center mb-16">
+          <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Service
           </p>
-          <h2 className="fade-in-up text-2xl sm:text-3xl md:text-4xl font-bold text-navy">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             事業を加速させる4つのサービス
           </h2>
+          <div className="decorative-line" />
         </div>
 
-        {/* カード */}
+        {/* サービスカード */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map((service, i) => (
+          {SERVICES.map((service, index) => (
             <div
-              key={i}
-              className="fade-in-up service-card bg-gray-50 rounded-2xl p-8 text-center border border-gray-100"
-              data-delay={i * 100}
+              key={index}
+              className="fade-in-stagger service-card bg-navy-light border border-white/10 rounded-2xl p-8 text-center"
+              data-delay={index * 150}
             >
+              {/* 番号 */}
+              <span className="text-3xl font-bold text-accent opacity-60 block mb-4">
+                {service.number}
+              </span>
+
+              {/* アイコン */}
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-accent/10 text-accent mb-6">
                 {service.icon}
               </div>
-              <h3 className="text-lg font-bold text-navy mb-3 whitespace-pre-line leading-snug">
-                {service.title}
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed font-light">
+
+              {/* タイトル */}
+              <h3 className="text-lg font-bold mb-4">{service.title}</h3>
+
+              {/* 説明 */}
+              <p className="text-white/60 text-sm leading-relaxed font-light">
                 {service.description}
               </p>
             </div>

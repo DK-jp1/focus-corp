@@ -1,28 +1,62 @@
 /**
- * ミッションセクション: 会社のミッションと理念
+ * セクション3：ミッション
+ * 背景：ダークネイビー / テキスト：白
  */
 export default function MissionSection() {
   return (
-    <section className="bg-white py-24 sm:py-32 px-6">
-      <div className="max-w-3xl mx-auto text-center">
-        {/* セクション見出し */}
-        <p className="fade-in-up text-sm tracking-[0.3em] text-accent font-medium uppercase mb-4">
-          Mission
-        </p>
+    <section id="mission" className="bg-navy py-24 md:py-32 px-6">
+      <div className="max-w-3xl mx-auto text-center text-white">
+        {/* 見出し */}
+        <div className="fade-in-up mb-12">
+          <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+            Mission
+          </p>
+          <div className="decorative-line mb-8" />
+        </div>
 
-        {/* ミッションコピー */}
-        <h2 className="fade-in-up text-2xl sm:text-3xl md:text-4xl font-bold text-navy leading-snug mb-8">
-          テクノロジーで、
-          <br />
-          働く人の&quot;当たり前&quot;を変える。
+        {/* メインコピー */}
+        <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-bold mb-12 leading-tight">
+          長崎を、若者が
+          <br className="md:hidden" />
+          残りたいと思える街にする
         </h2>
 
         {/* 本文 */}
-        <p className="fade-in-up text-base sm:text-lg text-gray-600 leading-loose font-light">
-          一人で頑張る事業主の負担を減らし、本業に集中できる環境を届ける。
-          <br className="hidden sm:block" />
-          focus株式会社は、長崎からAIの力でビジネスの効率化を支援します。
-        </p>
+        <div className="fade-in-up text-gray-300 leading-[2.2] text-base md:text-lg font-light space-y-8">
+          <p>
+            私たちは、AIの力で地域経済を活性化し、
+            <br />
+            長崎県を「ここで働きたい」「ここに住みたい」と思える場所に変えます。
+          </p>
+
+          <p className="text-white text-xl font-medium">
+            なぜこのミッションなのか。
+          </p>
+
+          <p>
+            それは、地方の衰退は「仕方ない」ことではないと信じているからです。
+          </p>
+
+          <p>
+            テクノロジーを正しく使えば、場所のハンデは消せる。
+            <br />
+            一人でも多くの事業主がAIで業務を効率化し、
+            <br />
+            本業に集中し、成長し、雇用を生み出す。
+          </p>
+
+          <p>
+            その連鎖が、街を変える。
+            <br />
+            高校生や大学生が「ここで働きたい」と思う会社が増えれば、
+            <br />
+            若者は残る。街は活気を取り戻す。
+          </p>
+
+          <p className="text-white text-xl font-medium pt-4">
+            私たちは、その未来を本気で創ります。
+          </p>
+        </div>
       </div>
     </section>
   );
