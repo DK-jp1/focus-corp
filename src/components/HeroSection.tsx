@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 /**
  * セクション1：ファーストビュー
  * ダークネイビー背景 + 微細グラデーション
@@ -17,9 +19,14 @@ export default function HeroSection() {
 
       {/* ロゴ（左上） */}
       <div className="absolute top-6 left-6 md:top-8 md:left-10 z-10">
-        <span className="text-2xl font-bold tracking-wider">
-          focus<span className="text-accent">.</span>
-        </span>
+        <Image
+          src="/images/logo.png"
+          alt="focus株式会社"
+          width={160}
+          height={40}
+          className="h-10 w-auto"
+          priority
+        />
       </div>
 
       {/* メインコンテンツ */}

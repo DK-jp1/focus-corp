@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 /**
  * フッター
  * 背景：#000 / テキスト：白
@@ -10,9 +12,13 @@ export default function Footer() {
         {/* 上部: ロゴ + リンク */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
           {/* ロゴ（小さく） */}
-          <p className="text-white text-xl font-bold tracking-wider">
-            focus<span className="text-accent">.</span>
-          </p>
+          <Image
+            src="/images/logo.png"
+            alt="focus株式会社"
+            width={128}
+            height={32}
+            className="h-8 w-auto"
+          />
 
           {/* リンク */}
           <div className="flex items-center gap-6 text-sm">
