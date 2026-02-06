@@ -7,7 +7,7 @@ import Image from "next/image";
  */
 export default function Footer() {
   return (
-    <footer className="bg-black py-12 px-6">
+    <footer className="bg-navy py-12 px-6 border-t border-white/5">
       <div className="max-w-5xl mx-auto">
         {/* 上部: ロゴ + リンク */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">

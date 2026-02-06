@@ -62,12 +62,12 @@ export default function ValueSection() {
           {VALUES.map((value, index) => (
             <div
               key={index}
-              className="fade-in-stagger flex gap-6 md:gap-8"
+              className="fade-in-stagger glass-card rounded-2xl p-6 md:p-8 flex gap-6 md:gap-8"
               data-delay={index * 150}
             >
               {/* 番号 */}
               <div className="flex-shrink-0">
-                <span className="text-4xl md:text-5xl font-bold text-accent opacity-80">
+                <span className="text-4xl md:text-5xl font-bold gradient-text-blue">
                   {value.number}
                 </span>
               </div>
@@ -77,7 +77,7 @@ export default function ValueSection() {
                 <h3 className="text-xl md:text-2xl font-bold mb-3">
                   {value.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed font-light">
+                <p className="text-gray-400 leading-relaxed font-light">
                   {value.description}
                 </p>
               </div>

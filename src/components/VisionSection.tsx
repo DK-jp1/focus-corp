@@ -49,18 +49,18 @@ const VISIONS: VisionItem[] = [
 
 export default function VisionSection() {
   return (
-    <section id="vision" className="bg-white py-24 md:py-32 px-6">
+    <section id="vision" className="bg-navy-alt py-24 md:py-32 px-6">
       <div className="max-w-5xl mx-auto">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Vision
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             可能性が、無限に広がる街へ
           </h2>
           <div className="decorative-line mb-6" />
-          <p className="text-navy text-lg font-light">
+          <p className="text-gray-400 text-lg font-light">
             私たちが描く未来は、こんな長崎です。
           </p>
         </div>
@@ -70,16 +70,16 @@ export default function VisionSection() {
           {VISIONS.map((vision, index) => (
             <div
               key={index}
-              className="fade-in-stagger bg-white border border-gray-100 rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
+              className="fade-in-stagger glass-card rounded-2xl p-8 text-center"
               data-delay={index * 200}
             >
               <div className="text-accent mb-6 flex justify-center">
                 {vision.icon}
               </div>
-              <h3 className="text-lg font-bold text-navy mb-4">
+              <h3 className="text-lg font-bold text-white mb-4">
                 {vision.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed font-light text-sm">
+              <p className="text-gray-400 leading-relaxed font-light text-sm">
                 {vision.description}
               </p>
             </div>
@@ -87,7 +87,7 @@ export default function VisionSection() {
         </div>
 
         {/* 締め */}
-        <p className="fade-in-up text-center text-navy text-lg md:text-xl font-medium">
+        <p className="fade-in-up text-center text-white text-lg md:text-xl font-medium">
           これは夢物語ではありません。
           <br />
           私たちが本気で創ろうとしている、現実です。

@@ -61,7 +61,7 @@ export default function FlowSection() {
           {STEPS.map((step, index) => (
             <div
               key={index}
-              className="fade-in-stagger relative text-center"
+              className="fade-in-stagger relative text-center glass-card rounded-2xl p-6"
               data-delay={index * 150}
             >
               {/* 番号（丸で囲む） */}

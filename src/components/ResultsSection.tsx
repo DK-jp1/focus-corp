@@ -15,14 +15,14 @@ const RESULTS = [
 
 export default function ResultsSection() {
   return (
-    <section id="results" className="bg-white py-24 md:py-32 px-6">
+    <section id="results" className="bg-navy-alt py-24 md:py-32 px-6">
       <div className="max-w-5xl mx-auto">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Results
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             数字で見るfocus
           </h2>
           <div className="decorative-line" />
@@ -33,13 +33,13 @@ export default function ResultsSection() {
           {RESULTS.map((result, index) => (
             <div
               key={index}
-              className="fade-in-stagger text-center"
+              className="fade-in-stagger glass-card rounded-2xl p-6 text-center"
               data-delay={index * 200}
             >
-              <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-2">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text-blue mb-2">
                 <CountUp end={result.end} suffix={result.suffix} />
               </p>
-              <p className="text-sm sm:text-base text-navy/60 font-light">
+              <p className="text-sm sm:text-base text-gray-400 font-light">
                 {result.label}
               </p>
             </div>

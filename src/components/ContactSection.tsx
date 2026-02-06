@@ -66,7 +66,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* 左：Instagram誘導 */}
           <div className="fade-in-up flex flex-col items-center justify-center text-center">
-            <div className="bg-navy-light border border-white/10 rounded-2xl p-8 sm:p-10 w-full">
+            <div className="glass-card rounded-2xl p-8 sm:p-10 w-full">
               <p className="text-white text-lg font-medium mb-6">
                 📩 Instagram DMで相談
               </p>
@@ -104,11 +104,11 @@ export default function ContactSection() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 space-y-5">
+              <form onSubmit={handleSubmit} className="glass-card-light rounded-2xl p-8 space-y-5">
                 {/* 名前（必須） */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
-                    お名前 <span className="text-red-500">*</span>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
+                    お名前 <span className="text-red-400">*</span>
                   </label>
                   <input
                     type="text"
@@ -117,15 +117,15 @@ export default function ContactSection() {
                     required
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-colors"
                     placeholder="山田 太郎"
                   />
                 </div>
 
                 {/* メール（必須） */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-navy mb-2">
-                    メールアドレス <span className="text-red-500">*</span>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
+                    メールアドレス <span className="text-red-400">*</span>
                   </label>
                   <input
                     type="email"
@@ -134,14 +134,14 @@ export default function ContactSection() {
                     required
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-colors"
                     placeholder="example@email.com"
                   />
                 </div>
 
                 {/* 電話番号（任意） */}
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-navy mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-2">
                     電話番号
                   </label>
                   <input
@@ -150,14 +150,14 @@ export default function ContactSection() {
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-colors"
                     placeholder="090-1234-5678"
                   />
                 </div>
 
                 {/* 業種（任意） */}
                 <div>
-                  <label htmlFor="industry" className="block text-sm font-medium text-navy mb-2">
+                  <label htmlFor="industry" className="block text-sm font-medium text-gray-200 mb-2">
                     業種
                   </label>
                   <select
@@ -165,7 +165,7 @@ export default function ContactSection() {
                     name="industry"
                     value={form.industry}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-colors"
                   >
                     <option value="">選択してください</option>
                     <option value="seitai">整体院</option>
@@ -183,8 +183,8 @@ export default function ContactSection() {
 
                 {/* ご相談内容（必須） */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-navy mb-2">
-                    ご相談内容 <span className="text-red-500">*</span>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
+                    ご相談内容 <span className="text-red-400">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -193,7 +193,7 @@ export default function ContactSection() {
                     rows={5}
                     value={form.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-colors resize-none"
                     placeholder="ご相談内容をお書きください"
                   />
                 </div>

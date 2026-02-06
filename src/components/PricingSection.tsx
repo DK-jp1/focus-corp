@@ -5,43 +5,43 @@
  */
 export default function PricingSection() {
   return (
-    <section id="pricing" className="bg-white py-24 md:py-32 px-6">
+    <section id="pricing" className="bg-navy-alt py-24 md:py-32 px-6">
       <div className="max-w-3xl mx-auto">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Price
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             料金プラン
           </h2>
           <div className="decorative-line" />
         </div>
 
         {/* 通常料金 */}
-        <div className="fade-in-up bg-gray-50 rounded-3xl border border-gray-100 p-8 sm:p-12 text-center mb-8">
+        <div className="fade-in-up glass-card-light rounded-3xl p-8 sm:p-12 text-center mb-8">
           {/* 初期費用 */}
           <div className="mb-8">
-            <p className="text-sm text-gray-500 mb-2 font-light">【初期費用】システム開発費</p>
-            <p className="text-4xl sm:text-5xl font-bold text-navy">
-              150,000<span className="text-lg font-medium">円（税込）</span>
+            <p className="text-sm text-gray-400 mb-2 font-light">【初期費用】システム開発費</p>
+            <p className="text-4xl sm:text-5xl font-bold text-white">
+              150,000<span className="text-lg font-medium text-gray-300">円（税込）</span>
             </p>
           </div>
 
           {/* 区切り線 */}
-          <div className="w-16 h-px bg-gray-200 mx-auto mb-8" />
+          <div className="w-16 h-px bg-white/10 mx-auto mb-8" />
 
           {/* 月額費用 */}
           <div>
-            <p className="text-sm text-gray-500 mb-2 font-light">【月額費用】システム利用料</p>
-            <p className="text-4xl sm:text-5xl font-bold text-navy">
-              20,000<span className="text-lg font-medium">円（税込）</span>
+            <p className="text-sm text-gray-400 mb-2 font-light">【月額費用】システム利用料</p>
+            <p className="text-4xl sm:text-5xl font-bold text-white">
+              20,000<span className="text-lg font-medium text-gray-300">円（税込）</span>
             </p>
           </div>
         </div>
 
         {/* キャンペーンバナー */}
-        <div className="fade-in-up bg-navy rounded-3xl p-8 sm:p-12 text-center text-white mb-8">
+        <div className="fade-in-up glass-card rounded-3xl p-8 sm:p-12 text-center text-white mb-8 border-accent/20">
           <p className="text-2xl md:text-3xl font-bold mb-8">
             🎉 法人化記念キャンペーン実施中
           </p>

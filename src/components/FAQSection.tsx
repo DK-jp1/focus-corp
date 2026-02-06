@@ -62,7 +62,7 @@ export default function FAQSection() {
           {FAQ_ITEMS.map((item, index) => (
             <div
               key={index}
-              className="fade-in-stagger border border-white/10 rounded-xl overflow-hidden"
+              className="fade-in-stagger glass-card rounded-xl overflow-hidden"
               data-delay={index * 100}
             >
               {/* 質問部分 */}

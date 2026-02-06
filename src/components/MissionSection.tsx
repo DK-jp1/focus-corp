@@ -4,8 +4,9 @@
  */
 export default function MissionSection() {
   return (
-    <section id="mission" className="bg-navy py-24 md:py-32 px-6">
-      <div className="max-w-3xl mx-auto text-center text-white">
+    <section id="mission" className="bg-navy py-24 md:py-32 px-6 relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.04),transparent_70%)]" />
+      <div className="max-w-3xl mx-auto text-center text-white relative z-10">
         {/* 見出し */}
         <div className="fade-in-up mb-12">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">

@@ -36,14 +36,14 @@ const VOICES: VoiceItem[] = [
 
 export default function ClientVoiceSection() {
   return (
-    <section id="client-voice" className="bg-white py-24 md:py-32 px-6">
+    <section id="client-voice" className="bg-navy-alt py-24 md:py-32 px-6">
       <div className="max-w-5xl mx-auto">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Client Voice
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             お客様の声
           </h2>
           <div className="decorative-line" />
@@ -54,7 +54,7 @@ export default function ClientVoiceSection() {
           {VOICES.map((voice, index) => (
             <div
               key={index}
-              className="fade-in-stagger bg-gray-50 rounded-2xl p-8 border border-gray-100 relative"
+              className="fade-in-stagger glass-card rounded-2xl p-8 relative"
               data-delay={index * 200}
             >
               {/* 引用符装飾 */}
@@ -63,7 +63,7 @@ export default function ClientVoiceSection() {
               </span>
 
               {/* 引用テキスト */}
-              <p className="text-navy text-lg font-medium mb-6 pt-8 leading-relaxed">
+              <p className="text-white text-lg font-medium mb-6 pt-8 leading-relaxed">
                 「{voice.quote}」
               </p>
 
@@ -77,10 +77,10 @@ export default function ClientVoiceSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-navy font-medium">
+                  <p className="text-sm text-gray-200 font-medium">
                     {voice.location} / {voice.business}
                   </p>
-                  <p className="text-xs text-gray-400 font-light">
+                  <p className="text-xs text-gray-500 font-light">
                     {voice.demographics}
                   </p>
                 </div>

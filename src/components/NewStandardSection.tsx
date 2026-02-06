@@ -5,8 +5,8 @@
  */
 export default function NewStandardSection() {
   return (
-    <section id="new-standard" className="bg-white py-24 md:py-32 px-6">
-      <div className="max-w-3xl mx-auto text-center text-navy">
+    <section id="new-standard" className="bg-navy-alt py-24 md:py-32 px-6">
+      <div className="max-w-3xl mx-auto text-center text-white">
         {/* 見出し */}
         <div className="fade-in-up mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
@@ -26,10 +26,10 @@ export default function NewStandardSection() {
           <p className="text-lg md:text-xl font-light leading-relaxed mb-6">
             → 人を雇う
           </p>
-          <p className="text-gray-500 font-light">
+          <p className="text-gray-400 font-light">
             これが今までの常識でした。
           </p>
-          <p className="text-gray-500 font-light mt-2">
+          <p className="text-gray-400 font-light mt-2">
             でも、時代は変わりました。
           </p>
         </div>
@@ -44,7 +44,7 @@ export default function NewStandardSection() {
           <p className="text-xl md:text-2xl font-medium text-accent leading-relaxed mb-6">
             → AIを導入する
           </p>
-          <p className="text-navy font-medium text-lg">
+          <p className="text-white font-medium text-lg">
             これが、新しい当たり前です。
           </p>
         </div>
@@ -74,7 +74,7 @@ export default function NewStandardSection() {
 
         {/* ブロック3 */}
         <div className="fade-in-up mb-4">
-          <p className="text-lg font-light leading-[2] text-gray-600 mb-8">
+          <p className="text-lg font-light leading-[2] text-gray-400 mb-8">
             人は忘れる。疲れる。ミスを繰り返す。
             <br />
             <br />
@@ -82,7 +82,7 @@ export default function NewStandardSection() {
             <br />
             一度学習すれば、二度と同じミスをしない。
           </p>
-          <p className="text-xl md:text-2xl font-medium text-navy">
+          <p className="text-xl md:text-2xl font-medium text-white">
             コストは10分の1。
             <br />
             精度は、比べものにならない。
@@ -96,7 +96,7 @@ export default function NewStandardSection() {
           <h3 className="text-2xl md:text-4xl font-bold mb-8">
             あなた専用のAIを。
           </h3>
-          <p className="text-lg md:text-xl font-light leading-[2] text-gray-600 mb-8">
+          <p className="text-lg md:text-xl font-light leading-[2] text-gray-400 mb-8">
             あなたのビジョンを共に実現する、
             <br />
             経営者があなたの隣に。

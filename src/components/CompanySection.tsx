@@ -29,34 +29,34 @@ const COMPANY_INFO: CompanyInfo[] = [
 
 export default function CompanySection() {
   return (
-    <section id="company" className="bg-white py-24 md:py-32 px-6">
+    <section id="company" className="bg-navy-alt py-24 md:py-32 px-6">
       <div className="max-w-3xl mx-auto">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Company
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             会社概要
           </h2>
           <div className="decorative-line" />
         </div>
 
         {/* テーブル */}
-        <div className="fade-in-up">
+        <div className="fade-in-up glass-card rounded-2xl p-8">
           <table className="w-full">
             <tbody>
               {COMPANY_INFO.map((info, index) => (
                 <tr
                   key={index}
-                  className="border-b border-gray-100 last:border-b-0"
+                  className="border-b border-white/5 last:border-b-0"
                 >
                   {/* ラベル */}
-                  <th className="text-left text-sm text-gray-500 font-medium py-5 pr-8 align-top w-32 sm:w-40">
+                  <th className="text-left text-sm text-gray-400 font-medium py-5 pr-8 align-top w-32 sm:w-40">
                     {info.label}
                   </th>
                   {/* 値 */}
-                  <td className="text-navy py-5 font-light">
+                  <td className="text-gray-200 py-5 font-light">
                     {Array.isArray(info.value) ? (
                       <ul className="space-y-1">
                         {info.value.map((item, i) => (

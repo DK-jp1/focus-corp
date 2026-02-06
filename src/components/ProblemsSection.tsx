@@ -15,8 +15,9 @@ const PROBLEMS = [
 
 export default function ProblemsSection() {
   return (
-    <section id="problems" className="bg-navy py-24 md:py-32 px-6">
-      <div className="max-w-3xl mx-auto text-white">
+    <section id="problems" className="bg-navy py-24 md:py-32 px-6 relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(59,130,246,0.04),transparent_60%)]" />
+      <div className="max-w-3xl mx-auto text-white relative z-10">
         {/* 見出し */}
         <h2 className="fade-in-up text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-16">
           こんなお悩み、ありませんか？

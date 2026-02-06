@@ -8,14 +8,12 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #0a1628 0%, #0f1f3d 50%, #0a1628 100%)",
-      }}
+      className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden bg-navy"
     >
       {/* 微細グラデーションオーバーレイ */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.08),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.05),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.06),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.04),transparent_70%)]" />
 
       {/* ロゴ（左上） */}
       <div className="absolute top-6 left-6 md:top-8 md:left-10 z-10">

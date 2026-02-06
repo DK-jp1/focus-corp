@@ -66,8 +66,9 @@ const SERVICES: ServiceItem[] = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="bg-navy py-24 md:py-32 px-6">
-      <div className="max-w-6xl mx-auto text-white">
+    <section id="services" className="bg-navy py-24 md:py-32 px-6 relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.05),transparent_60%)]" />
+      <div className="max-w-6xl mx-auto text-white relative z-10">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
@@ -84,7 +85,7 @@ export default function ServicesSection() {
           {SERVICES.map((service, index) => (
             <div
               key={index}
-              className="fade-in-stagger service-card bg-navy-light border border-white/10 rounded-2xl p-8 text-center"
+              className="fade-in-stagger service-card glass-card rounded-2xl p-8 text-center"
               data-delay={index * 150}
             >
               {/* 番号 */}

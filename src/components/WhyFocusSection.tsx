@@ -64,12 +64,12 @@ export default function WhyFocusSection() {
           {REASONS.map((reason, index) => (
             <div
               key={index}
-              className="fade-in-stagger flex gap-6 md:gap-8"
+              className="fade-in-stagger glass-card rounded-2xl p-6 md:p-8 flex gap-6 md:gap-8"
               data-delay={index * 150}
             >
               {/* 番号 */}
               <div className="flex-shrink-0">
-                <span className="text-4xl md:text-5xl font-bold text-accent opacity-80">
+                <span className="text-4xl md:text-5xl font-bold gradient-text-blue">
                   {reason.number}
                 </span>
               </div>
@@ -79,7 +79,7 @@ export default function WhyFocusSection() {
                 <h3 className="text-xl md:text-2xl font-bold mb-3">
                   {reason.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed font-light">
+                <p className="text-gray-400 leading-relaxed font-light">
                   {reason.description}
                 </p>
               </div>

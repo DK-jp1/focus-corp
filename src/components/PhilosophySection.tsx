@@ -5,21 +5,21 @@
  */
 export default function PhilosophySection() {
   return (
-    <section id="philosophy" className="bg-white py-24 md:py-32 px-6">
+    <section id="philosophy" className="bg-navy-alt py-24 md:py-32 px-6">
       <div className="max-w-3xl mx-auto text-center">
         {/* 見出し */}
         <div className="fade-in-up mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Philosophy
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             はじめに
           </h2>
           <div className="decorative-line" />
         </div>
 
         {/* 本文 */}
-        <div className="fade-in-up text-navy leading-[2.2] text-base md:text-lg font-light space-y-8">
+        <div className="fade-in-up text-gray-300 leading-[2.2] text-base md:text-lg font-light space-y-8">
           <p>
             私たちfocusは、「故郷が静かになっていく」という寂しさから生まれました。
           </p>
@@ -36,7 +36,7 @@ export default function PhilosophySection() {
             若者は都会へ出て行き、シャッターが増え、活気が失われていく。
           </p>
 
-          <p className="text-xl md:text-2xl font-medium py-2">
+          <p className="text-xl md:text-2xl font-medium py-2 text-white">
             「このままでいいのか？」
           </p>
 
@@ -70,7 +70,7 @@ export default function PhilosophySection() {
             そして、「長崎で働きたい」と思える会社を、この地に作る。
           </p>
 
-          <p className="text-xl md:text-2xl font-medium pt-4">
+          <p className="text-xl md:text-2xl font-medium pt-4 text-white">
             それが、focusが存在する理由です。
           </p>
         </div>

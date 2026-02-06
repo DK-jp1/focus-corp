@@ -40,14 +40,14 @@ const CONCEPTS: ConceptItem[] = [
 
 export default function PhilosophyCoreSection() {
   return (
-    <section id="philosophy-core" className="bg-white py-24 md:py-32 px-6">
+    <section id="philosophy-core" className="bg-navy-alt py-24 md:py-32 px-6">
       <div className="max-w-3xl mx-auto">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-16">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Philosophy
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             focus哲学の核心概念
           </h2>
           <div className="decorative-line" />
@@ -59,12 +59,12 @@ export default function PhilosophyCoreSection() {
             <div key={index}>
               <div className="fade-in-up py-12">
                 {/* タイトル */}
-                <h3 className="text-xl md:text-2xl font-bold text-navy mb-8 text-center">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-8 text-center">
                   {concept.title}
                 </h3>
 
                 {/* 本文 */}
-                <div className="text-navy leading-[2.2] text-base md:text-lg font-light space-y-6 text-center">
+                <div className="text-gray-300 leading-[2.2] text-base md:text-lg font-light space-y-6 text-center">
                   {concept.paragraphs.map((paragraph, pIndex) => (
                     <p key={pIndex} className="whitespace-pre-line">
                       {paragraph}
