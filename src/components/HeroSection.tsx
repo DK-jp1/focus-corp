@@ -10,6 +10,18 @@ export default function HeroSection() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden bg-navy"
     >
+      {/* グリッドパターン背景 */}
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
+      {/* グリッドのフェード（下端に向かって消える） */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-navy" />
+
       {/* 微細グラデーションオーバーレイ */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.1),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.06),transparent_50%)]" />
@@ -30,7 +42,10 @@ export default function HeroSection() {
       {/* メインコンテンツ */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         {/* メインコピー */}
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-8">
+        <h1
+          className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-8"
+          style={{ textShadow: "0 0 40px rgba(59,130,246,0.2), 0 2px 8px rgba(0,0,0,0.4)" }}
+        >
           AIで、働き方が変わる。
         </h1>
 
@@ -49,7 +64,7 @@ export default function HeroSection() {
         {/* CTAボタン */}
         <a
           href="#contact"
-          className="cta-button inline-block bg-accent hover:bg-accent-hover text-white font-medium text-base sm:text-lg px-10 py-4 rounded-full"
+          className="cta-button inline-block bg-accent hover:bg-accent-hover text-white font-medium text-base sm:text-lg px-10 py-4 rounded-full border border-white/10"
         >
           無料相談はこちら
         </a>
