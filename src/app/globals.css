@@ -299,6 +299,62 @@ html {
   display: none;
 }
 
+/* ========== ページロードアニメーション ========== */
+.page-load-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: page-load-appear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.page-load-fade-in.delay-100 {
+  animation-delay: 0.3s;
+}
+
+.page-load-fade-in.delay-300 {
+  animation-delay: 0.5s;
+}
+
+.page-load-fade-in.delay-500 {
+  animation-delay: 0.7s;
+}
+
+@keyframes page-load-appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== グリッドパルスアニメーション ========== */
+.grid-pulse {
+  animation: grid-pulse-anim 4s ease-in-out infinite;
+}
+
+@keyframes grid-pulse-anim {
+  0%, 100% { opacity: 0.02; }
+  50% { opacity: 0.05; }
+}
+
+/* ========== ナビゲーションリンクホバー ========== */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #3B82F6, #06B6D4);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
 /* ========== セレクションカラー ========== */
 ::selection {
   background-color: rgba(59, 130, 246, 0.2);

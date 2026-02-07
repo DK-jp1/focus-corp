@@ -16,7 +16,7 @@ export default function Footer() {
           {/* ロゴ（小さく） */}
           <Image
             src="/images/logo.png"
-            alt="focus株式会社"
+            alt="focus company"
             width={128}
             height={32}
             className="h-8 w-auto"
@@ -61,7 +61,7 @@ export default function Footer() {
 
         {/* コピーライト */}
         <p className="text-center text-white/40 text-xs font-light">
-          &copy; 2025 focus株式会社 All Rights Reserved.
+          &copy; 2025 focus company All Rights Reserved.
         </p>
       </div>
     </footer>

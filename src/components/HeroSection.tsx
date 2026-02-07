@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 /**
  * セクション1：ファーストビュー
  * グリッドパターン + グラデーションライン + text-shadow
@@ -20,17 +18,7 @@ export default function HeroSection() {
       {/* 上部のグラデーションライン */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent z-[2]" />
 
-      {/* ロゴ（左上） */}
-      <div className="absolute top-6 left-6 md:top-8 md:left-10 z-10">
-        <Image
-          src="/images/logo.png"
-          alt="focus株式会社"
-          width={160}
-          height={40}
-          className="h-10 w-auto"
-          priority
-        />
-      </div>
+      {/* ロゴはNavigationに移動 */}
 
       {/* メインコンテンツ */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">

@@ -19,7 +19,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 /**
- * focus株式会社 コーポレートサイト（1ページ完結SPA）
+ * focus company コーポレートサイト（1ページ完結SPA）
  * 全17セクション + フッター
  */
 export default function Home() {
