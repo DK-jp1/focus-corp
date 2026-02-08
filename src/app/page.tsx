@@ -9,6 +9,7 @@ import ProblemsSection from "@/components/ProblemsSection";
 import NewStandardSection from "@/components/NewStandardSection";
 import ServicesSection from "@/components/ServicesSection";
 import ResultsSection from "@/components/ResultsSection";
+import WorksSection from "@/components/WorksSection";
 import WhyFocusSection from "@/components/WhyFocusSection";
 import PricingSection from "@/components/PricingSection";
 import FlowSection from "@/components/FlowSection";
@@ -107,8 +108,11 @@ export default function Home() {
         subtitle="Webサイト・アプリ開発の実力をご紹介"
       />
 
-      {/* 10. 実績 */}
+      {/* 10. 実績（数字） */}
       <ResultsSection />
+
+      {/* 10.5 制作実績（Works） */}
+      <WorksSection />
 
       {/* 11. 選ばれる理由 */}
       <WhyFocusSection />
