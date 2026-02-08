@@ -449,10 +449,22 @@ html {
   }
 }
 
-/* Swiperスライドサイズ（slidesPerViewで自動計算、max-widthで上限制御） */
+/* Swiperスライドサイズ（高さ自動、中央揃え） */
 .carousel-3d-slide {
   height: auto !important;
   max-width: 400px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* スライド画像（アスペクト比維持、上下見切れ防止） */
+.carousel-slide-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 1rem;
 }
 
 /* スライドアイテム（3D版） */
@@ -502,7 +514,7 @@ html {
 /* Swiperオーバーフロー制御＋トランジション */
 .carousel-swiper-3d {
   overflow: hidden;
-  padding-bottom: 10px;
+  padding: 20px 0;
 }
 
 .carousel-swiper-3d .swiper-wrapper {

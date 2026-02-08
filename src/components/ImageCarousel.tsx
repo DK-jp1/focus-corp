@@ -165,21 +165,20 @@ export default function ImageCarousel({ images, title, subtitle, id }: ImageCaro
                     animation: isVisible ? `carousel-float 4s ease-in-out ${index * 0.5}s infinite` : "none",
                   }}
                 >
-                  {/* メイン画像カード */}
-                  <div className="carousel-image-card relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden border border-white/10">
+                  {/* メイン画像カード（アスペクト比維持、上下見切れ防止） */}
+                  <div className="carousel-image-card flex items-center justify-center rounded-2xl overflow-hidden border border-white/10 bg-black/20">
                     <Image
                       src={src}
                       alt={`${title} image ${index + 1}`}
-                      fill
-                      className="object-cover"
+                      width={600}
+                      height={800}
+                      className="carousel-slide-image"
                       sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 35vw"
                     />
-                    {/* 下部グラデーション */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
                   </div>
 
                   {/* 床の反射 */}
-                  <div className="carousel-reflection relative h-[80px] md:h-[100px] mt-[2px] rounded-b-2xl overflow-hidden pointer-events-none">
+                  <div className="carousel-reflection relative h-[50px] md:h-[70px] mt-[2px] rounded-b-2xl overflow-hidden pointer-events-none">
                     <Image
                       src={src}
                       alt=""
