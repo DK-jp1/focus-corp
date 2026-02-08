@@ -122,14 +122,19 @@ export default function ImageCarousel({ images, title, subtitle, id }: ImageCaro
             modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
             effect="coverflow"
             coverflowEffect={{
-              rotate: 20,
+              rotate: 15,
               stretch: 0,
-              depth: 200,
+              depth: 150,
               modifier: 1,
-              slideShadows: true,
+              slideShadows: false,
             }}
             centeredSlides={true}
-            slidesPerView="auto"
+            slidesPerView={1.2}
+            spaceBetween={20}
+            breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 25 },
+              1024: { slidesPerView: 3, spaceBetween: 30 },
+            }}
             loop={true}
             autoplay={{
               delay: 6000,

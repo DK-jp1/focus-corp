@@ -420,10 +420,23 @@ html {
   }
 }
 
-/* 3Dコンテナ（perspective設定） */
+/* 3Dコンテナ（perspective設定 + はみ出し防止パディング） */
 .carousel-3d-container {
   perspective: 1000px;
   perspective-origin: center center;
+  padding: 0 20px;
+}
+
+@media (min-width: 640px) {
+  .carousel-3d-container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-3d-container {
+    padding: 0 60px;
+  }
 }
 
 /* ふわふわ浮遊アニメーション */
@@ -436,22 +449,10 @@ html {
   }
 }
 
-/* Swiperスライドサイズ */
+/* Swiperスライドサイズ（slidesPerViewで自動計算、max-widthで上限制御） */
 .carousel-3d-slide {
-  width: 280px !important;
   height: auto !important;
-}
-
-@media (min-width: 640px) {
-  .carousel-3d-slide {
-    width: 320px !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .carousel-3d-slide {
-    width: 380px !important;
-  }
+  max-width: 400px;
 }
 
 /* スライドアイテム（3D版） */
@@ -492,26 +493,18 @@ html {
   mask-image: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.5) 100%);
 }
 
-/* Swiperのスライドシャドウ（coverflow内蔵） */
+/* Swiperのスライドシャドウ非表示（slideShadows: false） */
 .carousel-swiper-3d .swiper-slide-shadow-left,
 .carousel-swiper-3d .swiper-slide-shadow-right {
-  border-radius: 1rem;
-  background: linear-gradient(
-    to right,
-    rgba(10, 22, 40, 0.6),
-    rgba(10, 22, 40, 0)
-  );
+  display: none;
 }
 
-.carousel-swiper-3d .swiper-slide-shadow-right {
-  background: linear-gradient(
-    to left,
-    rgba(10, 22, 40, 0.6),
-    rgba(10, 22, 40, 0)
-  );
+/* Swiperオーバーフロー制御＋トランジション */
+.carousel-swiper-3d {
+  overflow: hidden;
+  padding-bottom: 10px;
 }
 
-/* Swiperトランジション（ゆったり滑らか） */
 .carousel-swiper-3d .swiper-wrapper {
   transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
