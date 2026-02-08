@@ -7,6 +7,7 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
+  company: string;
   industry: string;
   message: string;
 }
@@ -16,6 +17,7 @@ const INITIAL_FORM: FormData = {
   name: "",
   email: "",
   phone: "",
+  company: "",
   industry: "",
   message: "",
 };
@@ -214,6 +216,25 @@ export default function ContactSection() {
                     placeholder="090-1234-5678"
                   />
                   {renderFieldError("phone")}
+                </div>
+
+                {/* 会社名（任意） */}
+                <div>
+                  <label htmlFor="company" className="block text-sm font-medium text-navy mb-2">
+                    会社名
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    maxLength={200}
+                    value={form.company}
+                    onChange={handleChange}
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors disabled:opacity-50"
+                    placeholder="株式会社○○"
+                  />
+                  {renderFieldError("company")}
                 </div>
 
                 {/* 業種（任意） */}

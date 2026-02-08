@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 // ===== バリデーションスキーマ =====
 const contactSchema = z.object({
@@ -15,6 +16,7 @@ const contactSchema = z.object({
       (val) => !val || /^0\d{1,4}-?\d{1,4}-?\d{3,4}$/.test(val),
       "有効な電話番号を入力してください"
     ),
+  company: z.string().max(200, "会社名は200文字以内で入力してください").optional(),
   industry: z.string().optional(),
   message: z
     .string()
@@ -45,7 +47,6 @@ function cleanupRateLimit(): void {
 
 /** レートリミットチェック（true=許可, false=制限） */
 function checkRateLimit(ip: string): boolean {
-  // 定期的に古いエントリを削除
   if (rateLimitStore.size > 1000) {
     cleanupRateLimit();
   }
@@ -133,51 +134,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { name, email, phone, industry, message } = result.data;
+    const { name, email, phone, company, industry, message } = result.data;
 
-    // メール送信（Resend API連携 — 環境変数未設定時はログのみ）
-    const resendApiKey = process.env.RESEND_API_KEY;
-    const notifyEmail = process.env.CONTACT_NOTIFY_EMAIL;
+    // Supabaseに保存
+    const supabase = getSupabaseAdmin();
+    const { error: dbError } = await supabase.from("contacts").insert({
+      name,
+      email,
+      phone: phone || null,
+      company: company || null,
+      industry: industry || null,
+      message,
+      status: "new",
+    });
 
-    if (resendApiKey && notifyEmail) {
-      const emailRes = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${resendApiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "focus company <noreply@focuscompany.jp>",
-          to: notifyEmail,
-          subject: `【お問い合わせ】${name}様より`,
-          text: [
-            `お名前: ${name}`,
-            `メール: ${email}`,
-            `電話: ${phone || "未入力"}`,
-            `業種: ${industry || "未選択"}`,
-            ``,
-            `ご相談内容:`,
-            message,
-            ``,
-            `送信日時: ${new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}`,
-          ].join("\n"),
-        }),
-      });
-
-      if (!emailRes.ok) {
-        console.error("メール送信エラー:", await emailRes.text());
-        // メール送信失敗でもお問い合わせ自体は記録する
-      }
-    } else {
-      // 環境変数未設定時: コンソールに記録
-      console.log("━━━ お問い合わせ受信 ━━━");
-      console.log(`名前: ${name}`);
-      console.log(`メール: ${email}`);
-      console.log(`電話: ${phone || "未入力"}`);
-      console.log(`業種: ${industry || "未選択"}`);
-      console.log(`内容: ${message}`);
-      console.log(`日時: ${new Date().toISOString()}`);
-      console.log("━━━━━━━━━━━━━━━━━━━━━");
+    if (dbError) {
+      console.error("Supabase INSERT エラー:", dbError);
+      return NextResponse.json(
+        { error: "サーバーエラーが発生しました。しばらくしてからお試しください。" },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json(
