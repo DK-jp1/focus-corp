@@ -49,7 +49,7 @@ export default function PricingSection() {
             <div className="space-y-4 mb-8">
               {/* 通常価格 */}
               <div>
-                <p className="text-sm text-gray-400 mb-1">通常価格</p>
+                <p className="text-sm text-gray-300 mb-1">通常価格</p>
                 <p className="text-2xl text-gray-500 line-through">15万円</p>
               </div>
 
@@ -58,7 +58,7 @@ export default function PricingSection() {
 
               {/* 長崎限定価格 */}
               <div>
-                <p className="text-sm text-gray-400 mb-1">長崎限定価格</p>
+                <p className="text-sm text-gray-300 mb-1">長崎限定価格</p>
                 <p className="text-2xl text-gray-500 line-through">5万円</p>
               </div>
 
@@ -78,7 +78,7 @@ export default function PricingSection() {
               長崎県限定｜先着10名様
             </p>
 
-            <p className="text-gray-400 text-xs font-light">
+            <p className="text-gray-300 text-xs font-light">
               ※内容により料金が変動する場合がございます。まずはお気軽にご相談ください。
             </p>
           </div>

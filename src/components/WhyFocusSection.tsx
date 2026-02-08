@@ -78,7 +78,7 @@ export default function WhyFocusSection() {
                 <h3 className="text-xl md:text-2xl font-bold mb-3">
                   {reason.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed font-light">
+                <p className="text-gray-300 leading-relaxed font-light">
                   {reason.description}
                 </p>
               </div>

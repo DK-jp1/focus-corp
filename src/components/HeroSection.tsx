@@ -53,7 +53,7 @@ export default function HeroSection() {
 
         {/* サブコピー */}
         <p
-          className="text-base sm:text-lg md:text-xl text-white/45 font-light mb-4 leading-relaxed"
+          className="text-base sm:text-lg md:text-xl text-white/60 font-light mb-4 leading-relaxed"
           style={{
             opacity: isLoaded ? 1 : 0,
             transform: isLoaded ? "translateY(0)" : "translateY(16px)",

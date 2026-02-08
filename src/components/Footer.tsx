@@ -40,19 +40,19 @@ export default function Footer() {
               @focus_copilot
             </a>
 
-            <a
-              href="#"
+            <Link
+              href="/privacy"
               className="text-white/40 hover:text-white/70 transition-colors duration-300"
             >
               プライバシーポリシー
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              href="/legal"
               className="text-white/40 hover:text-white/70 transition-colors duration-300"
             >
               特定商取引法に基づく表記
-            </a>
+            </Link>
           </nav>
         </div>
 

@@ -20,24 +20,72 @@ const INITIAL_FORM: FormData = {
   message: "",
 };
 
+/** フォーム送信状態 */
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
 /**
  * セクション17：お問い合わせ
  * section-dark + glass-card + gradient cta-button
+ * API連携 + バリデーション + エラーハンドリング
  */
 export default function ContactSection() {
   const [form, setForm] = useState<FormData>(INITIAL_FORM);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string[]>>({});
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    // 入力時にフィールドエラーをクリア
+    if (fieldErrors[e.target.name]) {
+      setFieldErrors((prev) => {
+        const next = { ...prev };
+        delete next[e.target.name];
+        return next;
+      });
+    }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // TODO: フォーム送信処理（API連携）
-    setIsSubmitted(true);
+    setStatus("submitting");
+    setErrorMessage("");
+    setFieldErrors({});
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (data.details) {
+          setFieldErrors(data.details);
+        }
+        setErrorMessage(data.error || "送信に失敗しました");
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+    } catch {
+      setErrorMessage("ネットワークエラーが発生しました。再度お試しください。");
+      setStatus("error");
+    }
+  };
+
+  /** フィールドエラーの表示 */
+  const renderFieldError = (field: string) => {
+    const errors = fieldErrors[field];
+    if (!errors || errors.length === 0) return null;
+    return (
+      <p className="text-red-500 text-xs mt-1">{errors[0]}</p>
+    );
   };
 
   return (
@@ -69,7 +117,7 @@ export default function ContactSection() {
               <p className="text-white text-lg font-medium mb-6">
                 Instagram DMで相談
               </p>
-              <p className="text-gray-400 font-light mb-6">
+              <p className="text-gray-300 font-light mb-6">
                 「相談希望」と送るだけでOK
               </p>
               <a
@@ -88,7 +136,7 @@ export default function ContactSection() {
 
           {/* 右：フォーム */}
           <div className="fade-in-up">
-            {isSubmitted ? (
+            {status === "success" ? (
               <div className="text-center py-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 text-green-400 mb-4">
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -96,7 +144,7 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">送信完了</h3>
-                <p className="text-gray-400 font-light">
+                <p className="text-gray-300 font-light">
                   お問い合わせありがとうございます。
                   <br />
                   2営業日以内にご返信いたします。
@@ -104,6 +152,13 @@ export default function ContactSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 space-y-5">
+                {/* グローバルエラーメッセージ */}
+                {status === "error" && errorMessage && (
+                  <div className="bg-red-50 border border-red-200 text-red-600 text-sm px-4 py-3 rounded-xl">
+                    {errorMessage}
+                  </div>
+                )}
+
                 {/* 名前（必須） */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
@@ -114,11 +169,14 @@ export default function ContactSection() {
                     id="name"
                     name="name"
                     required
+                    maxLength={100}
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors disabled:opacity-50"
                     placeholder="山田 太郎"
                   />
+                  {renderFieldError("name")}
                 </div>
 
                 {/* メール（必須） */}
@@ -133,9 +191,11 @@ export default function ContactSection() {
                     required
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors disabled:opacity-50"
                     placeholder="example@email.com"
                   />
+                  {renderFieldError("email")}
                 </div>
 
                 {/* 電話番号（任意） */}
@@ -149,9 +209,11 @@ export default function ContactSection() {
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors disabled:opacity-50"
                     placeholder="090-1234-5678"
                   />
+                  {renderFieldError("phone")}
                 </div>
 
                 {/* 業種（任意） */}
@@ -164,7 +226,8 @@ export default function ContactSection() {
                     name="industry"
                     value={form.industry}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors disabled:opacity-50"
                   >
                     <option value="">選択してください</option>
                     <option value="seitai">整体院</option>
@@ -190,20 +253,24 @@ export default function ContactSection() {
                     name="message"
                     required
                     rows={5}
+                    maxLength={2000}
                     value={form.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors resize-none"
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors resize-none disabled:opacity-50"
                     placeholder="ご相談内容をお書きください"
                   />
+                  {renderFieldError("message")}
                 </div>
 
                 {/* 送信ボタン */}
                 <div className="text-center pt-2">
                   <button
                     type="submit"
-                    className="cta-button text-white font-medium text-base sm:text-lg px-12 py-4 rounded-full w-full sm:w-auto"
+                    disabled={status === "submitting"}
+                    className="cta-button text-white font-medium text-base sm:text-lg px-12 py-4 rounded-full w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    送信する
+                    {status === "submitting" ? "送信中..." : "送信する"}
                   </button>
                 </div>
               </form>

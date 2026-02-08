@@ -73,7 +73,7 @@ export default function FlowSection() {
               <h3 className="text-lg font-bold mb-3">{step.title}</h3>
 
               {/* 説明 */}
-              <p className="text-gray-400 text-sm leading-relaxed font-light">
+              <p className="text-gray-300 text-sm leading-relaxed font-light">
                 {step.description}
               </p>
 

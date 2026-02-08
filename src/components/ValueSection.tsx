@@ -38,7 +38,7 @@ export default function ValueSection() {
               </div>
               <div>
                 <h3 className="text-xl md:text-2xl font-bold mb-3">{value.title}</h3>
-                <p className="text-gray-400 leading-relaxed font-light">{value.description}</p>
+                <p className="text-gray-300 leading-relaxed font-light">{value.description}</p>
               </div>
             </div>
           ))}

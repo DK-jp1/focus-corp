@@ -1,11 +1,9 @@
 import ScrollAnimator from "@/components/ScrollAnimator";
 import HeroSection from "@/components/HeroSection";
 import PhilosophySection from "@/components/PhilosophySection";
-import MissionSection from "@/components/MissionSection";
-import VisionSection from "@/components/VisionSection";
 import ValueSection from "@/components/ValueSection";
-import PhilosophyCoreSection from "@/components/PhilosophyCoreSection";
 import ProblemsSection from "@/components/ProblemsSection";
+import CTABanner from "@/components/CTABanner";
 import NewStandardSection from "@/components/NewStandardSection";
 import ServicesSection from "@/components/ServicesSection";
 import ResultsSection from "@/components/ResultsSection";
@@ -76,31 +74,34 @@ export default function Home() {
       {/* 1. ファーストビュー */}
       <HeroSection />
 
-      {/* 2. 企業理念（Philosophy - はじめに） */}
+      {/* 2. 企業理念（Philosophy + Mission 統合） */}
       <PhilosophySection />
 
-      {/* 3. ミッション */}
-      <MissionSection />
-
-      {/* 4. ビジョン */}
-      <VisionSection />
-
-      {/* 5. バリュー（行動指針） */}
+      {/* 3. バリュー（行動指針） */}
       <ValueSection />
 
-      {/* 6. focus哲学 */}
-      <PhilosophyCoreSection />
-
-      {/* 7. お悩み */}
+      {/* 4. お悩み */}
       <ProblemsSection />
 
-      {/* 8. New Standard */}
+      {/* CTA: お悩みセクション後 */}
+      <CTABanner
+        heading="まずは話を聞いてみませんか？"
+        subtext="「ちょっと相談したい」だけでもOKです。"
+      />
+
+      {/* 5. New Standard */}
       <NewStandardSection />
 
-      {/* 9. サービス内容 */}
+      {/* 6. サービス内容 */}
       <ServicesSection />
 
-      {/* 9.5 Development Works カルーセル */}
+      {/* CTA: サービスセクション後 */}
+      <CTABanner
+        heading="あなたのビジネスに最適なAI活用を提案します"
+        subtext="初期費用0円キャンペーン実施中。まずは無料相談から。"
+      />
+
+      {/* 6.5 Development Works カルーセル */}
       <ImageCarousel
         id="dev"
         images={DEV_WORKS_IMAGES}
@@ -108,16 +109,16 @@ export default function Home() {
         subtitle="Webサイト・アプリ開発の実力をご紹介"
       />
 
-      {/* 10. 実績（数字） */}
+      {/* 7. 実績（数字） */}
       <ResultsSection />
 
-      {/* 10.5 制作実績（Works） */}
+      {/* 7.5 制作実績（Works） */}
       <WorksSection />
 
-      {/* 11. 選ばれる理由 */}
+      {/* 8. 選ばれる理由 */}
       <WhyFocusSection />
 
-      {/* 11.5 Results & Cases カルーセル */}
+      {/* 8.5 Results & Cases カルーセル */}
       <ImageCarousel
         id="results"
         images={RESULTS_CASES_IMAGES}
@@ -125,25 +126,25 @@ export default function Home() {
         subtitle="実績と導入事例のご紹介"
       />
 
-      {/* 12. 料金プラン */}
+      {/* 9. 料金プラン */}
       <PricingSection />
 
-      {/* 13. 導入の流れ */}
+      {/* 10. 導入の流れ */}
       <FlowSection />
 
-      {/* 14. クライアントの声 */}
+      {/* 11. クライアントの声 */}
       <ClientVoiceSection />
 
-      {/* 15. FAQ */}
+      {/* 12. FAQ */}
       <FAQSection />
 
-      {/* 16. 会社概要 */}
+      {/* 13. 会社概要 */}
       <CompanySection />
 
-      {/* 17. お問い合わせ */}
+      {/* 14. お問い合わせ */}
       <ContactSection />
 
-      {/* 18. Service Gallery */}
+      {/* 15. Service Gallery */}
       <ImageCarousel
         id="gallery"
         images={SERVICE_GALLERY_IMAGES}

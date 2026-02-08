@@ -105,13 +105,13 @@ export default function WorksSection() {
                 {/* タイトル */}
                 <h3 className="text-xl font-bold text-white mb-2">
                   {work.title}
-                  <span className="text-sm font-normal text-gray-400 ml-2">
+                  <span className="text-sm font-normal text-gray-300 ml-2">
                     佐世保ポップコーン専門店
                   </span>
                 </h3>
 
                 {/* 説明 */}
-                <p className="text-gray-400 text-sm leading-relaxed font-light mb-4">
+                <p className="text-gray-300 text-sm leading-relaxed font-light mb-4">
                   {work.description}
                 </p>
 
@@ -133,7 +133,7 @@ export default function WorksSection() {
                   {work.tech.map((t) => (
                     <span
                       key={t}
-                      className="text-[10px] font-medium text-gray-400 border border-white/10 px-2 py-0.5 rounded"
+                      className="text-[10px] font-medium text-gray-300 border border-white/10 px-2 py-0.5 rounded"
                     >
                       {t}
                     </span>
