@@ -1,35 +1,37 @@
 import Image from "next/image";
+import Link from "next/link";
 
 /**
  * フッター
- * 背景：#000 / グラデーション区切り線
+ * ダークネイビー背景 + グラデーション区切り + 洗練レイアウト
  */
 export default function Footer() {
   return (
-    <footer className="bg-black py-12 px-6 relative">
-      {/* 上部のグラデーション区切り線 */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+    <footer className="relative bg-[#030712] py-16 px-6">
+      {/* 上部グラデーション区切り */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
 
       <div className="max-w-5xl mx-auto">
-        {/* 上部: ロゴ + リンク */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
-          {/* ロゴ（小さく） */}
-          <Image
-            src="/images/logo.png"
-            alt="focus company"
-            width={128}
-            height={32}
-            className="h-8 w-auto"
-          />
+        {/* 上部: ロゴ + ナビ */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-8 mb-10">
+          {/* ロゴ */}
+          <Link href="/">
+            <Image
+              src="/images/logo.png"
+              alt="focus company"
+              width={128}
+              height={32}
+              className="h-7 w-auto opacity-80 hover:opacity-100 transition-opacity"
+            />
+          </Link>
 
-          {/* リンク */}
-          <div className="flex items-center gap-6 text-sm">
-            {/* Instagram */}
+          {/* ナビゲーションリンク */}
+          <nav className="flex items-center gap-8 text-[13px]">
             <a
               href="https://www.instagram.com/focus_copilot/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-white transition-colors flex items-center gap-2"
+              className="text-white/40 hover:text-white/70 transition-colors duration-300 flex items-center gap-2"
               aria-label="Instagram"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
@@ -38,29 +40,27 @@ export default function Footer() {
               @focus_copilot
             </a>
 
-            {/* プライバシーポリシー */}
             <a
               href="#"
-              className="text-white/60 hover:text-white transition-colors font-light"
+              className="text-white/40 hover:text-white/70 transition-colors duration-300"
             >
               プライバシーポリシー
             </a>
 
-            {/* 特定商取引法 */}
             <a
               href="#"
-              className="text-white/60 hover:text-white transition-colors font-light"
+              className="text-white/40 hover:text-white/70 transition-colors duration-300"
             >
               特定商取引法に基づく表記
             </a>
-          </div>
+          </nav>
         </div>
 
         {/* 区切り線 */}
-        <div className="h-px bg-white/10 mb-6" />
+        <div className="h-px bg-white/[0.06] mb-8" />
 
         {/* コピーライト */}
-        <p className="text-center text-white/40 text-xs font-light">
+        <p className="text-center text-white/25 text-xs tracking-wide">
           &copy; 2025 focus company All Rights Reserved.
         </p>
       </div>

@@ -41,14 +41,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-dark section-glow-border corner-glow-bl py-24 md:py-32 px-6">
+    <section id="contact" className="section-dark section-glow-border corner-glow-bl py-32 md:py-44 px-6">
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-8">
-          <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+          <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Contact
           </p>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 text-shadow-sm">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-5 text-shadow-sm">
             お問い合わせ
           </h2>
           <div className="decorative-line" />

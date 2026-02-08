@@ -13,9 +13,9 @@ const PROBLEMS = [
 
 export default function ProblemsSection() {
   return (
-    <section id="problems" className="section-dark section-glow-border corner-glow-bl py-24 md:py-32 px-6">
+    <section id="problems" className="section-dark section-glow-border corner-glow-bl py-32 md:py-44 px-6">
       <div className="relative z-10 max-w-3xl mx-auto text-white">
-        <h2 className="fade-in-up text-2xl sm:text-3xl md:text-4xl font-black text-center mb-16 text-shadow-sm">
+        <h2 className="fade-in-up text-2xl sm:text-3xl md:text-5xl font-black text-center mb-20 text-shadow-sm">
           こんなお悩み、ありませんか？
         </h2>
 

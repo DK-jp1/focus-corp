@@ -4,12 +4,12 @@
  */
 export default function NewStandardSection() {
   return (
-    <section id="new-standard" className="section-light section-glow-border corner-glow-bl py-24 md:py-32 px-6">
+    <section id="new-standard" className="section-light section-glow-border corner-glow-bl py-32 md:py-44 px-6">
       <div className="relative z-10 max-w-3xl mx-auto text-center text-navy">
         {/* 見出し */}
-        <div className="fade-in-up mb-16">
-          <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">New Standard</p>
-          <h2 className="text-3xl md:text-5xl font-black mb-4">常識が、変わる。</h2>
+        <div className="fade-in-up mb-20">
+          <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">New Standard</p>
+          <h2 className="text-3xl md:text-6xl font-black mb-5">常識が、変わる。</h2>
           <div className="decorative-line" />
         </div>
 

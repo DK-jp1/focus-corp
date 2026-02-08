@@ -4,14 +4,14 @@
  */
 export default function PricingSection() {
   return (
-    <section id="pricing" className="section-light section-glow-border corner-glow-bl py-24 md:py-32 px-6">
+    <section id="pricing" className="section-light section-glow-border corner-glow-bl py-32 md:py-44 px-6">
       <div className="relative z-10 max-w-3xl mx-auto">
         {/* 見出し */}
-        <div className="fade-in-up text-center mb-16">
-          <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+        <div className="fade-in-up text-center mb-20">
+          <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Price
           </p>
-          <h2 className="text-3xl md:text-4xl font-black text-navy mb-4">
+          <h2 className="text-3xl md:text-5xl font-black text-navy mb-5">
             料金プラン
           </h2>
           <div className="decorative-line" />

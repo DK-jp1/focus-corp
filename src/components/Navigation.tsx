@@ -50,9 +50,9 @@ export default function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled || isOpen
-          ? "bg-navy/90 backdrop-blur-md shadow-lg shadow-black/10"
+          ? "bg-navy/80 backdrop-blur-xl shadow-lg shadow-black/10"
           : "bg-transparent"
       }`}
     >
@@ -78,7 +78,7 @@ export default function Navigation() {
             <Link
               key={item.href}
               href={item.href}
-              className="nav-link text-sm text-white/70 hover:text-white transition-colors relative"
+              className="nav-link text-[13px] text-white/50 hover:text-white/90 transition-colors duration-300 relative tracking-wide"
             >
               {item.label}
               {/* ホバー時の下線スライドイン */}

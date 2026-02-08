@@ -4,18 +4,18 @@
  */
 export default function MissionSection() {
   return (
-    <section id="mission" className="section-dark section-glow-border corner-glow-bl py-24 md:py-32 px-6">
+    <section id="mission" className="section-dark section-glow-border corner-glow-bl py-32 md:py-44 px-6">
       <div className="relative z-10 max-w-3xl mx-auto text-center text-white">
         {/* 見出し */}
-        <div className="fade-in-up mb-12">
-          <p className="text-accent text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+        <div className="fade-in-up mb-14">
+          <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Mission
           </p>
           <div className="decorative-line mb-8" />
         </div>
 
         {/* メインコピー */}
-        <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-black mb-12 leading-tight text-shadow-sm">
+        <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-black mb-14 leading-tight text-shadow-sm">
           長崎を、若者が
           <br className="md:hidden" />
           残りたいと思える街にする
