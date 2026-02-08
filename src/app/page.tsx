@@ -16,6 +16,7 @@ import ClientVoiceSection from "@/components/ClientVoiceSection";
 import FAQSection from "@/components/FAQSection";
 import CompanySection from "@/components/CompanySection";
 import ContactSection from "@/components/ContactSection";
+import ImageCarousel from "@/components/ImageCarousel";
 import Footer from "@/components/Footer";
 
 /**
@@ -78,6 +79,9 @@ export default function Home() {
 
       {/* 17. お問い合わせ */}
       <ContactSection />
+
+      {/* 18. Service Gallery */}
+      <ImageCarousel />
 
       {/* フッター */}
       <Footer />
