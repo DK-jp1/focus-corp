@@ -3,10 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
 
 /** スライド画像パス一覧 */
 const SLIDE_IMAGES = [
@@ -33,7 +34,10 @@ const SLIDE_IMAGES = [
   "/images/slides/S__178987033.jpg",
 ];
 
-/** Service Gallery カルーセルセクション */
+/** 背景パーティクル数 */
+const PARTICLE_COUNT = 20;
+
+/** Service Gallery 3Dカルーセルセクション */
 export default function ImageCarousel() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -65,7 +69,25 @@ export default function ImageCarousel() {
       {/* 背景グラデーションアニメーション */}
       <div className="carousel-bg-gradient absolute inset-0 z-[1]" />
 
-      {/* コーナーグロー（疑似要素の競合を避けてdivで配置） */}
+      {/* 奥行きパーティクル */}
+      <div className="absolute inset-0 z-[2] pointer-events-none">
+        {Array.from({ length: PARTICLE_COUNT }).map((_, i) => (
+          <div
+            key={i}
+            className="carousel-particle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${2 + Math.random() * 3}px`,
+              height: `${2 + Math.random() * 3}px`,
+              animationDelay: `${Math.random() * 8}s`,
+              animationDuration: `${6 + Math.random() * 6}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* コーナーグロー */}
       <div className="absolute top-0 right-0 w-[40%] h-[40%] pointer-events-none z-[1]"
         style={{ background: "radial-gradient(ellipse at top right, rgba(59,130,246,0.06), transparent 70%)" }}
       />
@@ -95,8 +117,9 @@ export default function ImageCarousel() {
           </p>
         </div>
 
-        {/* カルーセル */}
+        {/* 3Dカルーセル */}
         <div
+          className="carousel-3d-container"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(30px)",
@@ -104,9 +127,17 @@ export default function ImageCarousel() {
           }}
         >
           <Swiper
-            modules={[Autoplay, Pagination, Navigation]}
-            spaceBetween={24}
-            slidesPerView={1.3}
+            modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
+            effect="coverflow"
+            coverflowEffect={{
+              rotate: 20,
+              stretch: 0,
+              depth: 200,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            centeredSlides={true}
+            slidesPerView="auto"
             loop={true}
             autoplay={{
               delay: 6000,
@@ -123,35 +154,43 @@ export default function ImageCarousel() {
               prevEl: ".carousel-prev",
               nextEl: ".carousel-next",
             }}
-            breakpoints={{
-              640: { slidesPerView: 2, spaceBetween: 24 },
-              1024: { slidesPerView: 3, spaceBetween: 24 },
-              1280: { slidesPerView: 4, spaceBetween: 24 },
-            }}
             speed={1000}
-            className="carousel-swiper"
+            grabCursor={true}
+            className="carousel-swiper-3d"
           >
             {SLIDE_IMAGES.map((src, index) => (
-              <SwiperSlide key={src}>
+              <SwiperSlide key={src} className="carousel-3d-slide">
                 <div
-                  className="carousel-slide-item"
+                  className="carousel-slide-item-3d"
                   style={{
                     opacity: isVisible ? 1 : 0,
                     transition: `opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94) ${0.3 + index * 0.1}s`,
                     animation: isVisible ? `carousel-float 4s ease-in-out ${index * 0.5}s infinite` : "none",
                   }}
                 >
-                  {/* 画像カード */}
-                  <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden border border-white/10 group cursor-pointer">
+                  {/* メイン画像カード */}
+                  <div className="carousel-image-card relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden border border-white/10">
                     <Image
                       src={src}
                       alt={`Service image ${index + 1}`}
                       fill
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                      sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 30vw"
+                      className="object-cover"
+                      sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 35vw"
                     />
-                    {/* 下部反射グラデーション */}
+                    {/* 下部グラデーション */}
                     <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* 床の反射 */}
+                  <div className="carousel-reflection relative h-[80px] md:h-[100px] mt-[2px] rounded-b-2xl overflow-hidden pointer-events-none">
+                    <Image
+                      src={src}
+                      alt=""
+                      fill
+                      className="object-cover object-bottom"
+                      sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 35vw"
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
               </SwiperSlide>
@@ -160,17 +199,14 @@ export default function ImageCarousel() {
 
           {/* ナビゲーション＋インジケーター */}
           <div className="flex justify-center items-center gap-4 mt-10">
-            {/* 左矢印 */}
             <button className="carousel-prev carousel-nav-btn" aria-label="前のスライド">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
-            {/* ドットインジケーター */}
             <div className="carousel-pagination flex items-center gap-2" />
 
-            {/* 右矢印 */}
             <button className="carousel-next carousel-nav-btn" aria-label="次のスライド">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

@@ -379,7 +379,7 @@ html {
   background: var(--color-accent);
 }
 
-/* ========== カルーセルセクション ========== */
+/* ========== 3Dカルーセルセクション ========== */
 
 /* 背景グラデーションアニメーション（20秒ループ） */
 .carousel-bg-gradient {
@@ -395,6 +395,37 @@ html {
   66% { opacity: 0.5; transform: scale(1.1) translate(-2%, 1%); }
 }
 
+/* 奥行きパーティクル（奥から手前に流れる） */
+.carousel-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.3);
+  animation: carousel-particle-drift ease-in-out infinite;
+}
+
+@keyframes carousel-particle-drift {
+  0% {
+    opacity: 0;
+    transform: translateZ(-200px) scale(0.3);
+  }
+  30% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(100px) translateY(-60px) scale(1);
+  }
+}
+
+/* 3Dコンテナ（perspective設定） */
+.carousel-3d-container {
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
 /* ふわふわ浮遊アニメーション */
 @keyframes carousel-float {
   0%, 100% {
@@ -405,14 +436,84 @@ html {
   }
 }
 
-/* スライドアイテム */
-.carousel-slide-item {
-  border-radius: 1rem;
+/* Swiperスライドサイズ */
+.carousel-3d-slide {
+  width: 280px !important;
+  height: auto !important;
 }
 
-.carousel-slide-item:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+@media (min-width: 640px) {
+  .carousel-3d-slide {
+    width: 320px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-3d-slide {
+    width: 380px !important;
+  }
+}
+
+/* スライドアイテム（3D版） */
+.carousel-slide-item-3d {
+  border-radius: 1rem;
+  transition: filter 1s cubic-bezier(0.25, 0.1, 0.25, 1),
+              box-shadow 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  filter: blur(2px) brightness(0.7);
+}
+
+/* アクティブスライド：鮮明でブライト */
+.swiper-slide-active .carousel-slide-item-3d {
+  filter: blur(0) brightness(1.1);
+  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+}
+
+/* 隣接スライド：少しブラー */
+.swiper-slide-prev .carousel-slide-item-3d,
+.swiper-slide-next .carousel-slide-item-3d {
+  filter: blur(1px) brightness(0.8);
+}
+
+/* 画像カード */
+.carousel-image-card {
+  transition: box-shadow 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.swiper-slide-active .carousel-image-card {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+/* 床の反射 */
+.carousel-reflection {
+  transform: scaleY(-1);
+  opacity: 0.15;
+  filter: blur(4px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.5) 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.5) 100%);
+}
+
+/* Swiperのスライドシャドウ（coverflow内蔵） */
+.carousel-swiper-3d .swiper-slide-shadow-left,
+.carousel-swiper-3d .swiper-slide-shadow-right {
+  border-radius: 1rem;
+  background: linear-gradient(
+    to right,
+    rgba(10, 22, 40, 0.6),
+    rgba(10, 22, 40, 0)
+  );
+}
+
+.carousel-swiper-3d .swiper-slide-shadow-right {
+  background: linear-gradient(
+    to left,
+    rgba(10, 22, 40, 0.6),
+    rgba(10, 22, 40, 0)
+  );
+}
+
+/* Swiperトランジション（ゆったり滑らか） */
+.carousel-swiper-3d .swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
 
 /* ナビゲーション矢印ボタン（グラスモーフィズム） */
@@ -459,9 +560,4 @@ html {
   background: #3B82F6 !important;
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
   transform: scale(1.2);
-}
-
-/* Swiperトランジション（ゆったり滑らか） */
-.carousel-swiper .swiper-wrapper {
-  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
