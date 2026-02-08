@@ -31,11 +31,6 @@ const SLIDE_IMAGES = [
   "/images/slides/S__178987031_0.jpg",
   "/images/slides/S__178987032_0.jpg",
   "/images/slides/S__178987033.jpg",
-  "/images/slides/DSC00152_0.jpg",
-  "/images/slides/DSC00153_0.jpg",
-  "/images/slides/IMG_4282_0.jpg",
-  "/images/slides/IMG_4283_0.jpg",
-  "/images/slides/IMG_4442_0.jpg",
 ];
 
 /** Service Gallery カルーセルセクション */
@@ -114,7 +109,7 @@ export default function ImageCarousel() {
             slidesPerView={1.3}
             loop={true}
             autoplay={{
-              delay: 3000,
+              delay: 6000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
@@ -133,7 +128,7 @@ export default function ImageCarousel() {
               1024: { slidesPerView: 3, spaceBetween: 24 },
               1280: { slidesPerView: 4, spaceBetween: 24 },
             }}
-            speed={500}
+            speed={1000}
             className="carousel-swiper"
           >
             {SLIDE_IMAGES.map((src, index) => (
@@ -142,8 +137,8 @@ export default function ImageCarousel() {
                   className="carousel-slide-item"
                   style={{
                     opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? "translateY(0)" : "translateY(20px)",
-                    transition: `opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94) ${0.3 + index * 0.1}s, transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94) ${0.3 + index * 0.1}s`,
+                    transition: `opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94) ${0.3 + index * 0.1}s`,
+                    animation: isVisible ? `carousel-float 4s ease-in-out ${index * 0.5}s infinite` : "none",
                   }}
                 >
                   {/* 画像カード */}

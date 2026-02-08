@@ -395,15 +395,23 @@ html {
   66% { opacity: 0.5; transform: scale(1.1) translate(-2%, 1%); }
 }
 
-/* スライドアイテム ホバーエフェクト */
+/* ふわふわ浮遊アニメーション */
+@keyframes carousel-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* スライドアイテム */
 .carousel-slide-item {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 1rem;
 }
 
 .carousel-slide-item:hover {
-  transform: translateY(-8px);
+  filter: brightness(1.1);
   box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
 }
 
@@ -453,7 +461,7 @@ html {
   transform: scale(1.2);
 }
 
-/* Swiperトランジション */
+/* Swiperトランジション（ゆったり滑らか） */
 .carousel-swiper .swiper-wrapper {
-  transition-timing-function: ease-in-out !important;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
