@@ -11,9 +11,9 @@ interface CompanyInfo {
 
 const COMPANY_INFO: CompanyInfo[] = [
   { label: "会社名", value: "focus company" },
-  { label: "代表", value: "（後日掲載）" },
-  { label: "所在地", value: "長崎県〇〇市〇〇" },
-  { label: "設立", value: "2025年〇月" },
+  { label: "代表", value: "伊藤奏大" },
+  { label: "所在地", value: "長崎県佐世保市" },
+  { label: "設立", value: "2025年5月" },
   {
     label: "事業内容",
     value: [

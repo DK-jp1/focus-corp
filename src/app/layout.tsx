@@ -6,7 +6,7 @@ import Navigation from "@/components/Navigation";
 export const metadata: Metadata = {
   title: "focus company | AIで、働き方が変わる。",
   description:
-    "長崎県の個人事業主・サロン・企業向け AI導入・業務効率化・ウェブサイト制作。月20万円の人件費を月2万円に。focus companyがAIであなたのビジネスを加速させます。",
+    "長崎県佐世保市の個人事業主・サロン・企業向け AI導入・業務効率化・ウェブサイト制作。月20万円の人件費を月2万円に。focus companyがAIであなたのビジネスを加速させます。",
   keywords: [
     "AI導入",
     "業務効率化",
@@ -15,13 +15,14 @@ export const metadata: Metadata = {
     "チャットボット",
     "focus company",
     "長崎県",
+    "佐世保市",
     "個人事業主",
     "サロン",
   ],
   openGraph: {
     title: "focus company | AIで、働き方が変わる。",
     description:
-      "長崎県の個人事業主・サロン・企業向け AI導入・業務効率化・ウェブサイト制作。月20万円の人件費を月2万円に。",
+      "長崎県佐世保市の個人事業主・サロン・企業向け AI導入・業務効率化・ウェブサイト制作。月20万円の人件費を月2万円に。",
     type: "website",
     locale: "ja_JP",
     siteName: "focus company",
