@@ -19,9 +19,52 @@ import ContactSection from "@/components/ContactSection";
 import ImageCarousel from "@/components/ImageCarousel";
 import Footer from "@/components/Footer";
 
+/** Service Gallery（既存） スライド画像 */
+const SERVICE_GALLERY_IMAGES = [
+  "/images/slides/S__178987012_0.jpg",
+  "/images/slides/S__178987013_0.jpg",
+  "/images/slides/S__178987014_0.jpg",
+  "/images/slides/S__178987015_0.jpg",
+  "/images/slides/S__178987016_0.jpg",
+  "/images/slides/S__178987017_0.jpg",
+  "/images/slides/S__178987018_0.jpg",
+  "/images/slides/S__178987019_0.jpg",
+  "/images/slides/S__178987020_0.jpg",
+  "/images/slides/S__178987021_0.jpg",
+  "/images/slides/S__178987023_0.jpg",
+  "/images/slides/S__178987024_0.jpg",
+  "/images/slides/S__178987025_0.jpg",
+  "/images/slides/S__178987026_0.jpg",
+  "/images/slides/S__178987027_0.jpg",
+  "/images/slides/S__178987028_0.jpg",
+  "/images/slides/S__178987029_0.jpg",
+  "/images/slides/S__178987030_0.jpg",
+  "/images/slides/S__178987031_0.jpg",
+  "/images/slides/S__178987032_0.jpg",
+  "/images/slides/S__178987033.jpg",
+];
+
+/** Development Works スライド画像（サービス・開発力紹介） */
+const DEV_WORKS_IMAGES = [
+  "/images/slides-2/S__179003396_0.jpg",
+  "/images/slides-2/S__179003397_0.jpg",
+  "/images/slides-2/S__179003398_0.jpg",
+  "/images/slides-2/S__179003399_0.jpg",
+];
+
+/** Results & Cases スライド画像（実績・導入事例） */
+const RESULTS_CASES_IMAGES = [
+  "/images/slides-3/S__179003403_0.jpg",
+  "/images/slides-3/S__179003404_0.jpg",
+  "/images/slides-3/S__179003405_0.jpg",
+  "/images/slides-3/S__179003406_0.jpg",
+  "/images/slides-3/S__179003407_0.jpg",
+  "/images/slides-3/S__179003408_0.jpg",
+];
+
 /**
  * focus company コーポレートサイト（1ページ完結SPA）
- * 全17セクション + フッター
+ * 全セクション + カルーセル3つ + フッター
  */
 export default function Home() {
   return (
@@ -56,11 +99,27 @@ export default function Home() {
       {/* 9. サービス内容 */}
       <ServicesSection />
 
+      {/* 9.5 Development Works カルーセル */}
+      <ImageCarousel
+        id="dev"
+        images={DEV_WORKS_IMAGES}
+        title="Development Works"
+        subtitle="Webサイト・アプリ開発の実力をご紹介"
+      />
+
       {/* 10. 実績 */}
       <ResultsSection />
 
       {/* 11. 選ばれる理由 */}
       <WhyFocusSection />
+
+      {/* 11.5 Results & Cases カルーセル */}
+      <ImageCarousel
+        id="results"
+        images={RESULTS_CASES_IMAGES}
+        title="Results & Cases"
+        subtitle="実績と導入事例のご紹介"
+      />
 
       {/* 12. 料金プラン */}
       <PricingSection />
@@ -81,7 +140,12 @@ export default function Home() {
       <ContactSection />
 
       {/* 18. Service Gallery */}
-      <ImageCarousel />
+      <ImageCarousel
+        id="gallery"
+        images={SERVICE_GALLERY_IMAGES}
+        title="Service Gallery"
+        subtitle="focus companyのサービス紹介"
+      />
 
       {/* フッター */}
       <Footer />

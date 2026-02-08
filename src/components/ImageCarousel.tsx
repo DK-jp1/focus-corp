@@ -9,36 +9,23 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 
-/** スライド画像パス一覧 */
-const SLIDE_IMAGES = [
-  "/images/slides/S__178987012_0.jpg",
-  "/images/slides/S__178987013_0.jpg",
-  "/images/slides/S__178987014_0.jpg",
-  "/images/slides/S__178987015_0.jpg",
-  "/images/slides/S__178987016_0.jpg",
-  "/images/slides/S__178987017_0.jpg",
-  "/images/slides/S__178987018_0.jpg",
-  "/images/slides/S__178987019_0.jpg",
-  "/images/slides/S__178987020_0.jpg",
-  "/images/slides/S__178987021_0.jpg",
-  "/images/slides/S__178987023_0.jpg",
-  "/images/slides/S__178987024_0.jpg",
-  "/images/slides/S__178987025_0.jpg",
-  "/images/slides/S__178987026_0.jpg",
-  "/images/slides/S__178987027_0.jpg",
-  "/images/slides/S__178987028_0.jpg",
-  "/images/slides/S__178987029_0.jpg",
-  "/images/slides/S__178987030_0.jpg",
-  "/images/slides/S__178987031_0.jpg",
-  "/images/slides/S__178987032_0.jpg",
-  "/images/slides/S__178987033.jpg",
-];
-
 /** 背景パーティクル数 */
 const PARTICLE_COUNT = 20;
 
-/** Service Gallery 3Dカルーセルセクション */
-export default function ImageCarousel() {
+/** カルーセルコンポーネントのプロパティ */
+interface ImageCarouselProps {
+  /** スライド画像パス一覧 */
+  images: string[];
+  /** セクションタイトル */
+  title: string;
+  /** セクションサブタイトル */
+  subtitle: string;
+  /** 複数配置時の一意識別子（CSSセレクター用） */
+  id: string;
+}
+
+/** 3Dカルーセルセクション（再利用可能） */
+export default function ImageCarousel({ images, title, subtitle, id }: ImageCarouselProps) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -57,6 +44,11 @@ export default function ImageCarousel() {
     if (el) observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  /* インスタンス固有のCSSセレクター */
+  const paginationClass = `carousel-pagination-${id}`;
+  const prevClass = `carousel-prev-${id}`;
+  const nextClass = `carousel-next-${id}`;
 
   return (
     <section
@@ -110,10 +102,10 @@ export default function ImageCarousel() {
         >
           <div className="decorative-line mb-6" />
           <h2 className="text-3xl md:text-4xl font-black gradient-text mb-4">
-            Service Gallery
+            {title}
           </h2>
           <p className="text-[#94A3B8] font-light text-base md:text-lg">
-            focus companyのサービス紹介
+            {subtitle}
           </p>
         </div>
 
@@ -146,19 +138,19 @@ export default function ImageCarousel() {
             }}
             pagination={{
               clickable: true,
-              el: ".carousel-pagination",
+              el: `.${paginationClass}`,
               bulletClass: "carousel-dot",
               bulletActiveClass: "carousel-dot-active",
             }}
             navigation={{
-              prevEl: ".carousel-prev",
-              nextEl: ".carousel-next",
+              prevEl: `.${prevClass}`,
+              nextEl: `.${nextClass}`,
             }}
             speed={1000}
             grabCursor={true}
             className="carousel-swiper-3d"
           >
-            {SLIDE_IMAGES.map((src, index) => (
+            {images.map((src, index) => (
               <SwiperSlide key={src} className="carousel-3d-slide">
                 <div
                   className="carousel-slide-item-3d"
@@ -172,7 +164,7 @@ export default function ImageCarousel() {
                   <div className="carousel-image-card relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden border border-white/10">
                     <Image
                       src={src}
-                      alt={`Service image ${index + 1}`}
+                      alt={`${title} image ${index + 1}`}
                       fill
                       className="object-cover"
                       sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 35vw"
@@ -199,15 +191,15 @@ export default function ImageCarousel() {
 
           {/* ナビゲーション＋インジケーター */}
           <div className="flex justify-center items-center gap-4 mt-10">
-            <button className="carousel-prev carousel-nav-btn" aria-label="前のスライド">
+            <button className={`${prevClass} carousel-nav-btn`} aria-label="前のスライド">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
-            <div className="carousel-pagination flex items-center gap-2" />
+            <div className={`${paginationClass} flex items-center gap-2`} />
 
-            <button className="carousel-next carousel-nav-btn" aria-label="次のスライド">
+            <button className={`${nextClass} carousel-nav-btn`} aria-label="次のスライド">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
