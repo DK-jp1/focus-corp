@@ -13,7 +13,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { label: "ホーム", href: "/" },
   { label: "サービス", href: "/service" },
-  { label: "実績", href: "/#works" },
+  { label: "事業", href: "/#works" },
   { label: "料金", href: "/#pricing" },
   { label: "会社概要", href: "/#company" },
   { label: "お問い合わせ", href: "/#contact" },

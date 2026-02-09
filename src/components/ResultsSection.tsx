@@ -1,15 +1,15 @@
 /**
- * セクション10：実績
+ * セクション10：数字で見るfocus
  * section-light + gradient-text数字 + corner-glow
  */
 import CountUp from "./CountUp";
 
-/** 実績データ */
+/** 事業実績データ */
 const RESULTS = [
-  { end: 6, suffix: "社", label: "AI導入実績" },
-  { end: 12, suffix: "社", label: "ウェブサイト・LP制作（2025年）" },
-  { end: 1000, suffix: "万再生/月", label: "メディア運用実績" },
-  { end: 30, suffix: "億円", label: "関与ベンチャー年商規模" },
+  { end: 6, suffix: "社", label: "AI導入サポート" },
+  { end: 12, suffix: "サイト", label: "自社運営ウェブサイト・LP" },
+  { end: 1000, suffix: "万再生/月", label: "メディア運営実績" },
+  { end: 30, suffix: "億円", label: "関連事業年商規模" },
 ] as const;
 
 export default function ResultsSection() {
@@ -27,7 +27,7 @@ export default function ResultsSection() {
           <div className="decorative-line" />
         </div>
 
-        {/* 実績カード */}
+        {/* 数字カード */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {RESULTS.map((result, index) => (
             <div

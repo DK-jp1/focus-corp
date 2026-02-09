@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 /**
- * セクション：制作実績（Works）
+ * セクション：自社運営事業（Our Business）
  * section-dark + カード形式 + ホバーグロー
  */
 
-/** 制作実績データの型 */
-interface WorkItem {
+/** 運営事業データの型 */
+interface BusinessItem {
   title: string;
   category: string;
   description: string;
@@ -16,15 +16,15 @@ interface WorkItem {
   url: string;
 }
 
-/** 制作実績データ */
-const WORKS: WorkItem[] = [
+/** 運営事業データ */
+const BUSINESSES: BusinessItem[] = [
   {
     title: "あっとみぃ",
-    category: "ウェブサイト・ホームページ制作",
+    category: "飲食事業・ECサイト運営",
     description:
-      "長崎県佐世保市のポップコーン専門店「あっとみぃ」のオンライン注文サイト。スマホ対応のモダンなデザインで、オンライン注文からギャラリー機能まで一貫して構築。",
+      "focus companyが運営するポップコーン専門店。佐世保発のこだわりポップコーンをオンラインでお届けしています。",
     details: [
-      "レスポンシブ対応のウェブサイト制作",
+      "レスポンシブ対応のウェブサイト運営",
       "オンライン注文システム（フレーバー選択・数量・受取日時）",
       "写真投稿・ギャラリー機能",
       "管理画面（注文管理・写真管理）",
@@ -46,17 +46,17 @@ export default function WorksSection() {
         {/* 見出し */}
         <div className="fade-in-up text-center mb-20">
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
-            Works
+            Our Business
           </p>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-5 text-shadow-sm">
-            制作実績
+            自社運営事業
           </h2>
           <div className="decorative-line" />
         </div>
 
-        {/* 実績カード */}
+        {/* 事業カード */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {WORKS.map((work, index) => (
+          {BUSINESSES.map((work, index) => (
             <a
               key={index}
               href={work.url}
@@ -115,7 +115,7 @@ export default function WorksSection() {
                   {work.description}
                 </p>
 
-                {/* 制作内容 */}
+                {/* 事業内容 */}
                 <ul className="space-y-1 mb-4">
                   {work.details.map((detail, i) => (
                     <li

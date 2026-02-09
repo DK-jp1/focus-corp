@@ -51,7 +51,7 @@ const DEV_WORKS_IMAGES = [
   "/images/slides-2/S__179003399_0.jpg",
 ];
 
-/** Results & Cases スライド画像（実績・導入事例） */
+/** Results & Cases スライド画像（事業紹介） */
 const RESULTS_CASES_IMAGES = [
   "/images/slides-3/S__179003403_0.jpg",
   "/images/slides-3/S__179003404_0.jpg",
@@ -109,10 +109,10 @@ export default function Home() {
         subtitle="Webサイト・アプリ開発の実力をご紹介"
       />
 
-      {/* 7. 実績（数字） */}
+      {/* 7. 数字で見るfocus */}
       <ResultsSection />
 
-      {/* 7.5 制作実績（Works） */}
+      {/* 7.5 自社運営事業（Our Business） */}
       <WorksSection />
 
       {/* 8. 選ばれる理由 */}
@@ -123,7 +123,7 @@ export default function Home() {
         id="results"
         images={RESULTS_CASES_IMAGES}
         title="Results & Cases"
-        subtitle="実績と導入事例のご紹介"
+        subtitle="事業実績のご紹介"
       />
 
       {/* 9. 料金プラン */}
