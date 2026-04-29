@@ -19,6 +19,22 @@ interface BusinessItem {
 /** 運営事業データ */
 const BUSINESSES: BusinessItem[] = [
   {
+    title: "copilot room",
+    category: "AI経営参謀サービス",
+    description:
+      "経営者専用のAI参謀チーム。24時間365日、あなたの経営判断をサポートし続けるサービスです。",
+    details: [
+      "3つのAI参謀（プロモーター・ディレクター・アドバイザー）",
+      "24時間365日の経営相談対応",
+      "事業計画策定・数値管理支援",
+      "SNS・マーケティング戦略立案",
+      "業界知識・法務・財務アドバイス",
+    ],
+    tech: ["AI", "Claude", "Custom LLM"],
+    image: "/images/illustrations/copilot-room.png",
+    url: "#contact",
+  },
+  {
     title: "あっとみぃ",
     category: "飲食事業・ECサイト運営",
     description:
@@ -40,7 +56,7 @@ export default function WorksSection() {
   return (
     <section
       id="works"
-      className="section-dark section-glow-border corner-glow-bl py-32 md:py-44 px-6"
+      className="section-light section-glow-border corner-glow-bl py-32 md:py-44 px-6"
     >
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* 見出し */}
@@ -48,7 +64,7 @@ export default function WorksSection() {
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Our Business
           </p>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-5 text-shadow-sm">
+          <h2 className="text-3xl md:text-5xl font-black text-navy mb-5">
             自社運営事業
           </h2>
           <div className="decorative-line" />
@@ -60,24 +76,23 @@ export default function WorksSection() {
             <a
               key={index}
               href={work.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="fade-in-stagger group block glass-card rounded-2xl overflow-hidden border border-white/10 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(59,130,246,0.25)] transition-all duration-300"
+              {...(work.url.startsWith('#') ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+              className="fade-in-stagger group block glass-card-light rounded-2xl overflow-hidden border border-slate-200 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(59,130,246,0.15)] transition-all duration-300"
               data-delay={index * 200}
             >
               {/* サムネイル */}
-              <div className="relative aspect-video overflow-hidden bg-navy/50">
+              <div className="relative aspect-video overflow-hidden bg-slate-100">
                 <Image
                   src={work.image}
                   alt={work.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 496px"
                 />
                 {/* ホバーオーバーレイ */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <span className="text-white text-sm font-medium flex items-center gap-1">
-                    サイトを見る
+                    {work.url.startsWith('#') ? 'お問い合わせ' : 'サイトを見る'}
                     <svg
                       className="w-4 h-4"
                       fill="none"
@@ -103,15 +118,12 @@ export default function WorksSection() {
                 </span>
 
                 {/* タイトル */}
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-navy mb-2">
                   {work.title}
-                  <span className="text-sm font-normal text-gray-300 ml-2">
-                    佐世保ポップコーン専門店
-                  </span>
                 </h3>
 
                 {/* 説明 */}
-                <p className="text-gray-300 text-sm leading-relaxed font-light mb-4">
+                <p className="text-slate-500 text-sm leading-relaxed font-light mb-4">
                   {work.description}
                 </p>
 
@@ -120,7 +132,7 @@ export default function WorksSection() {
                   {work.details.map((detail, i) => (
                     <li
                       key={i}
-                      className="text-gray-500 text-xs font-light flex items-start gap-2"
+                      className="text-slate-400 text-xs font-light flex items-start gap-2"
                     >
                       <span className="text-accent mt-0.5">▸</span>
                       {detail}
@@ -133,7 +145,7 @@ export default function WorksSection() {
                   {work.tech.map((t) => (
                     <span
                       key={t}
-                      className="text-[10px] font-medium text-gray-300 border border-white/10 px-2 py-0.5 rounded"
+                      className="text-[10px] font-medium text-slate-500 border border-slate-200 px-2 py-0.5 rounded"
                     >
                       {t}
                     </span>

@@ -29,6 +29,11 @@ const FAQ_ITEMS = [
     answer:
       "もちろんです。「ちょっと話を聞いてみたい」だけでもOKです。お気軽にご連絡ください。",
   },
+  {
+    question: "copilot roomとは何ですか？",
+    answer:
+      "copilot roomは、あなた専用のAI経営参謀チームです。3つのAI参謀（プロモーター・ディレクター・アドバイザー）が24時間365日、経営判断をサポートします。",
+  },
 ] as const;
 
 /**
@@ -50,7 +55,7 @@ export default function FAQSection() {
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             FAQ
           </p>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-5 text-shadow-sm">
+          <h2 className="text-3xl md:text-5xl font-black text-navy mb-5">
             よくある質問
           </h2>
           <div className="decorative-line" />
@@ -67,7 +72,7 @@ export default function FAQSection() {
               {/* 質問部分 */}
               <button
                 onClick={() => toggle(index)}
-                className="w-full flex items-center justify-between p-5 sm:p-6 text-left text-white hover:bg-white/5 transition-colors"
+                className="w-full flex items-center justify-between p-5 sm:p-6 text-left text-navy hover:bg-slate-50 transition-colors"
                 aria-expanded={openIndex === index}
               >
                 <span className="text-sm sm:text-base font-bold pr-4">
@@ -84,7 +89,7 @@ export default function FAQSection() {
                 className={`accordion-content ${openIndex === index ? "open" : ""}`}
               >
                 <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-                  <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
+                  <p className="text-sm sm:text-base text-slate-500 font-light leading-relaxed">
                     A. {item.answer}
                   </p>
                 </div>

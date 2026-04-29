@@ -10,17 +10,30 @@ interface CompanyInfo {
 }
 
 const COMPANY_INFO: CompanyInfo[] = [
-  { label: "会社名", value: "focus company" },
+  { label: "会社名", value: "合同会社focus" },
   { label: "代表", value: "伊藤奏大" },
   { label: "所在地", value: "長崎県佐世保市" },
-  { label: "設立", value: "2025年5月" },
+  { label: "設立", value: "2026年2月25日" },
   {
     label: "事業内容",
     value: [
+      "AI経営参謀サービス（copilot room）",
+      "AI×SNSマーケティング（FLARE）",
       "AI導入・業務効率化支援",
-      "ウェブサイト・ホームページ制作",
-      "チャットボット構築",
-      "ショート動画制作",
+    ],
+  },
+  {
+    label: "保有認定資格",
+    value: [
+      "Google AI Essentials",
+      "Google Digital Marketing & E-commerce",
+      "Google Business Intelligence",
+      "Google Data Analytics",
+      "Google Project Management",
+      "Google Cybersecurity",
+      "CertiProf Scrum Foundation (SFPC)",
+      "CertiProf Cybersecurity Foundation (CSFPC)",
+      "Microsoft AI Skills Challenge",
     ],
   },
   { label: "Instagram", value: "@focus_copilot" },

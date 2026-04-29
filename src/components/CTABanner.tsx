@@ -22,11 +22,11 @@ export default function CTABanner({
   return (
     <section className="section-dark py-20 md:py-28 px-6">
       <div className="relative z-10 max-w-3xl mx-auto text-center">
-        <h2 className="fade-in-up text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
+        <h2 className="fade-in-up text-2xl md:text-3xl font-bold text-navy mb-4 leading-snug">
           {heading}
         </h2>
         {subtext && (
-          <p className="fade-in-up text-gray-400 font-light mb-8">
+          <p className="fade-in-up text-slate-500 font-light mb-8">
             {subtext}
           </p>
         )}

@@ -1,26 +1,24 @@
 /* ================================================================
-   focus company — Design System
-   Linear / Vercel / Stripe インスパイア
+   focus company — Design System (Light Theme)
+   otasukeai.jp inspired: clean, approachable, card-based
    ================================================================ */
-
-/* フォント: next/font/google で最適化済み（layout.tsx で読み込み） */
 
 @import "tailwindcss";
 
 /* ===== カスタムテーマ ===== */
 @theme inline {
-  --color-navy: #060b18;
-  --color-navy-light: #0c1524;
-  --color-navy-gradient: #111d33;
-  --color-navy-surface: #0f172a;
+  --color-navy: #1e293b;
+  --color-navy-light: #334155;
+  --color-navy-gradient: #475569;
+  --color-navy-surface: #f8fafc;
   --color-accent: #3B82F6;
   --color-accent-hover: #2563EB;
   --color-accent-cyan: #06B6D4;
-  --color-accent-light: rgba(59, 130, 246, 0.10);
+  --color-accent-light: rgba(59, 130, 246, 0.08);
   --color-background: #ffffff;
-  --color-foreground: #0a1628;
-  --color-campaign-bg: #0d1526;
-  --color-price-red: #EF4444;
+  --color-foreground: #1e293b;
+  --color-section-alt: #f8fafc;
+  --color-border: #e2e8f0;
   --font-display: var(--font-outfit, 'Outfit'), sans-serif;
 }
 
@@ -32,7 +30,7 @@ html {
 body {
   font-family: var(--font-noto-sans-jp, 'Noto Sans JP'), sans-serif;
   color: var(--color-foreground);
-  background: var(--color-navy);
+  background: var(--color-background);
   overflow-x: hidden;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
@@ -40,7 +38,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(59, 130, 246, 0.2);
+  background-color: rgba(59, 130, 246, 0.15);
   color: inherit;
 }
 
@@ -48,38 +46,27 @@ body {
    セクション背景
    ================================================================ */
 
-/* ダークセクション — 深いネイビー + 微細ノイズ */
+/* ダークセクション → ライトグレー（交互セクション用） */
 .section-dark {
   position: relative;
-  background-color: #060b18;
-}
-
-.section-dark::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px;
-  pointer-events: none;
-  z-index: 0;
+  background-color: #f8fafc;
 }
 
 /* ライトセクション — クリーンなホワイト */
 .section-light {
   position: relative;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+  background: #ffffff;
 }
 
-/* ===== グリッドパターン ===== */
+/* ===== グリッドパターン（薄く） ===== */
 .bg-grid-pattern {
   background-image:
-    linear-gradient(rgba(59, 130, 246, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
-/* ===== セクション間グラデーションライン ===== */
+/* ===== セクション間ボーダー ===== */
 .section-glow-border {
   position: relative;
 }
@@ -91,7 +78,7 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 5%, rgba(59, 130, 246, 0.25) 30%, rgba(6, 182, 212, 0.2) 50%, rgba(59, 130, 246, 0.25) 70%, transparent 95%);
+  background: linear-gradient(90deg, transparent 5%, rgba(59, 130, 246, 0.1) 30%, rgba(59, 130, 246, 0.08) 50%, rgba(59, 130, 246, 0.1) 70%, transparent 95%);
 }
 
 /* ================================================================
@@ -147,15 +134,6 @@ body {
   background-clip: text;
 }
 
-/* テキストシャドウ */
-.text-shadow-sm {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.text-shadow-lg {
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
 /* セクション英語ラベル用ディスプレイフォント */
 .label-en {
   font-family: 'Outfit', sans-serif;
@@ -170,28 +148,12 @@ body {
   background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2), 0 4px 16px rgba(59, 130, 246, 0.2);
-}
-
-.cta-button::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, #3B82F6, #06B6D4);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-  filter: blur(16px);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.3), 0 8px 32px rgba(59, 130, 246, 0.3);
-}
-
-.cta-button:hover::before {
-  opacity: 0.4;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
 }
 
 .cta-button:active {
@@ -199,37 +161,34 @@ body {
 }
 
 /* ================================================================
-   カード — グラスモーフィズム
+   カード
    ================================================================ */
 
-/* ダークセクション用 */
+/* グレーセクション上のカード（白背景） */
 .glass-card {
-  background: rgba(255, 255, 255, 0.025);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
   border-color: rgba(59, 130, 246, 0.2);
-  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.08), 0 8px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.08), 0 8px 32px rgba(0, 0, 0, 0.06);
   transform: translateY(-2px);
 }
 
-/* ライトセクション用 */
+/* ホワイトセクション上のカード（薄グレー背景） */
 .glass-card-light {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card-light:hover {
   border-color: rgba(59, 130, 246, 0.15);
-  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.06), 0 8px 32px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.06), 0 8px 32px rgba(0, 0, 0, 0.04);
   transform: translateY(-2px);
 }
 
@@ -240,7 +199,7 @@ body {
 
 .service-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.15), 0 16px 48px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
   border-color: rgba(59, 130, 246, 0.2);
 }
 
@@ -251,7 +210,7 @@ body {
 /* デコレーティブライン */
 .decorative-line {
   width: 40px;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(90deg, #3B82F6, #06B6D4);
   margin: 0 auto;
 }
@@ -260,29 +219,11 @@ body {
 .section-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.15), transparent);
+  background: linear-gradient(to right, transparent, #e2e8f0, transparent);
   margin: 2.5rem 0;
 }
 
-/* 見出し横の青ライン */
-.heading-accent {
-  position: relative;
-  display: inline-block;
-}
-
-.heading-accent::before {
-  content: '';
-  position: absolute;
-  left: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2px;
-  height: 60%;
-  background: linear-gradient(180deg, #3B82F6, #06B6D4);
-  border-radius: 2px;
-}
-
-/* コーナーグロー */
+/* コーナーグロー（ライト版） */
 .corner-glow-tr { position: relative; }
 .corner-glow-tr::after {
   content: '';
@@ -360,13 +301,6 @@ body {
   }
 }
 
-/* グリッドパルス */
-.grid-pulse { animation: grid-pulse-anim 4s ease-in-out infinite; }
-@keyframes grid-pulse-anim {
-  0%, 100% { opacity: 0.02; }
-  50% { opacity: 0.04; }
-}
-
 /* ================================================================
    ナビゲーション
    ================================================================ */
@@ -381,7 +315,7 @@ body {
   bottom: -2px;
   left: 0;
   width: 0;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(90deg, #3B82F6, #06B6D4);
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -395,7 +329,7 @@ body {
    ================================================================ */
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #060b18; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #3B82F6, #06B6D4);
   border-radius: 3px;
@@ -405,16 +339,14 @@ body {
 }
 
 /* ================================================================
-   ヒーローセクション
+   ヒーローセクション（ライト版）
    ================================================================ */
 
-/* グラデーションメッシュ背景 */
 .hero-gradient-mesh {
   background:
-    radial-gradient(ellipse at 25% 40%, rgba(59, 130, 246, 0.12), transparent 50%),
-    radial-gradient(ellipse at 75% 25%, rgba(6, 182, 212, 0.08), transparent 50%),
-    radial-gradient(ellipse at 50% 75%, rgba(59, 130, 246, 0.06), transparent 50%),
-    radial-gradient(ellipse at 85% 70%, rgba(6, 182, 212, 0.04), transparent 40%);
+    radial-gradient(ellipse at 25% 40%, rgba(59, 130, 246, 0.08), transparent 50%),
+    radial-gradient(ellipse at 75% 25%, rgba(6, 182, 212, 0.06), transparent 50%),
+    radial-gradient(ellipse at 50% 75%, rgba(59, 130, 246, 0.04), transparent 50%);
   animation: hero-mesh-drift 25s ease-in-out infinite;
 }
 
@@ -424,47 +356,24 @@ body {
   66% { transform: translate(-1%, 0.5%) scale(0.99); }
 }
 
-/* ドットパターン背景 */
 .hero-dot-pattern {
-  background-image: radial-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
-/* ヒーロー文字アニメーション用 */
 .hero-char {
   display: inline-block;
   will-change: transform, opacity;
 }
 
 /* ================================================================
-   3Dカルーセル
+   3Dカルーセル（ライト版）
    ================================================================ */
 
 .carousel-bg-gradient {
   background:
     radial-gradient(ellipse at 30% 50%, rgba(59, 130, 246, 0.04), transparent 50%),
     radial-gradient(ellipse at 70% 50%, rgba(6, 182, 212, 0.03), transparent 50%);
-  animation: carousel-bg-shift 20s ease-in-out infinite;
-}
-
-@keyframes carousel-bg-shift {
-  0%, 100% { opacity: 1; transform: scale(1) translate(0, 0); }
-  33% { opacity: 0.7; transform: scale(1.05) translate(2%, -1%); }
-  66% { opacity: 0.5; transform: scale(1.1) translate(-2%, 1%); }
-}
-
-.carousel-particle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(59, 130, 246, 0.25);
-  animation: carousel-particle-drift ease-in-out infinite;
-}
-
-@keyframes carousel-particle-drift {
-  0% { opacity: 0; transform: translateZ(-200px) scale(0.3); }
-  30% { opacity: 0.5; }
-  70% { opacity: 0.3; }
-  100% { opacity: 0; transform: translateZ(100px) translateY(-60px) scale(1); }
 }
 
 .carousel-3d-container {
@@ -475,11 +384,6 @@ body {
 
 @media (min-width: 640px) { .carousel-3d-container { padding: 0 40px; } }
 @media (min-width: 1024px) { .carousel-3d-container { padding: 0 60px; } }
-
-@keyframes carousel-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
 
 .carousel-3d-slide {
   height: auto !important;
@@ -500,17 +404,17 @@ body {
 .carousel-slide-item-3d {
   border-radius: 1rem;
   transition: filter 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 1s cubic-bezier(0.25, 0.1, 0.25, 1);
-  filter: blur(2px) brightness(0.7);
+  filter: blur(2px) brightness(0.9);
 }
 
 .swiper-slide-active .carousel-slide-item-3d {
-  filter: blur(0) brightness(1.05);
-  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.25);
+  filter: blur(0) brightness(1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 
 .swiper-slide-prev .carousel-slide-item-3d,
 .swiper-slide-next .carousel-slide-item-3d {
-  filter: blur(1px) brightness(0.8);
+  filter: blur(1px) brightness(0.95);
 }
 
 .carousel-image-card {
@@ -518,12 +422,12 @@ body {
 }
 
 .swiper-slide-active .carousel-image-card {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.08);
 }
 
 .carousel-reflection {
   transform: scaleY(-1);
-  opacity: 0.12;
+  opacity: 0.08;
   filter: blur(4px);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.5) 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.5) 100%);
@@ -548,27 +452,26 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.5);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .carousel-nav-btn:hover {
-  background: rgba(59, 130, 246, 0.15);
+  background: rgba(59, 130, 246, 0.05);
   border-color: rgba(59, 130, 246, 0.3);
-  color: white;
-  box-shadow: 0 0 16px rgba(59, 130, 246, 0.2);
+  color: #3B82F6;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.1);
 }
 
 .carousel-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: #cbd5e1;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-block;
@@ -581,6 +484,6 @@ body {
 
 .carousel-dot-active {
   background: #3B82F6 !important;
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
   transform: scale(1.2);
 }

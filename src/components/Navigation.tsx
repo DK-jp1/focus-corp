@@ -12,9 +12,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: "ホーム", href: "/" },
-  { label: "サービス", href: "/service" },
-  { label: "事業", href: "/#works" },
-  { label: "料金", href: "/#pricing" },
+  { label: "サービス", href: "/#services" },
   { label: "会社概要", href: "/#company" },
   { label: "お問い合わせ", href: "/#contact" },
 ];
@@ -53,12 +51,12 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled || isOpen
-          ? "bg-navy/80 backdrop-blur-xl shadow-lg shadow-black/10"
+          ? "bg-white/90 backdrop-blur-xl shadow-sm"
           : "bg-transparent"
       }`}
     >
       {/* 下部のグラデーションライン */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16 md:h-20">
         {/* ロゴ */}
@@ -79,7 +77,7 @@ export default function Navigation() {
             <Link
               key={item.href}
               href={item.href}
-              className="nav-link text-[13px] text-white/50 hover:text-white/90 transition-colors duration-300 relative tracking-wide"
+              className="nav-link text-[13px] text-slate-500 hover:text-slate-900 transition-colors duration-300 relative tracking-wide"
             >
               {item.label}
               {/* ホバー時の下線スライドイン */}
@@ -97,17 +95,17 @@ export default function Navigation() {
           aria-expanded={isOpen}
         >
           <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+            className={`block w-6 h-0.5 bg-slate-700 transition-all duration-300 ${
               isOpen ? "rotate-45 translate-y-1.5" : ""
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-white mt-1.5 transition-all duration-300 ${
+            className={`block w-6 h-0.5 bg-slate-700 mt-1.5 transition-all duration-300 ${
               isOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-white mt-1.5 transition-all duration-300 ${
+            className={`block w-6 h-0.5 bg-slate-700 mt-1.5 transition-all duration-300 ${
               isOpen ? "-rotate-45 -translate-y-1.5" : ""
             }`}
           />
@@ -116,7 +114,7 @@ export default function Navigation() {
 
       {/* SP用モバイルメニュー */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-navy/95 backdrop-blur-md border-t border-white/5 transition-all duration-300 ${
+        className={`md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-100 transition-all duration-300 ${
           isOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
@@ -128,7 +126,7 @@ export default function Navigation() {
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="block py-4 text-white/70 hover:text-white transition-colors border-b border-white/5 last:border-b-0 text-base"
+              className="block py-4 text-slate-600 hover:text-slate-900 transition-colors border-b border-slate-100 last:border-b-0 text-base"
             >
               {item.label}
             </Link>

@@ -19,7 +19,7 @@ const VALUES: ValueItem[] = [
 export default function ValueSection() {
   return (
     <section id="value" className="section-dark section-glow-border corner-glow-tr py-32 md:py-44 px-6">
-      <div className="relative z-10 max-w-3xl mx-auto text-white">
+      <div className="relative z-10 max-w-3xl mx-auto text-navy">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-20">
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">Value</p>
@@ -38,7 +38,7 @@ export default function ValueSection() {
               </div>
               <div>
                 <h3 className="text-xl md:text-2xl font-bold mb-3">{value.title}</h3>
-                <p className="text-gray-300 leading-relaxed font-light">{value.description}</p>
+                <p className="text-slate-500 leading-relaxed font-light">{value.description}</p>
               </div>
             </div>
           ))}

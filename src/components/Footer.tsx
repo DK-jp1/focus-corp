@@ -7,9 +7,9 @@ import Link from "next/link";
  */
 export default function Footer() {
   return (
-    <footer className="relative bg-[#030712] py-16 px-6">
+    <footer className="relative bg-white py-16 px-6">
       {/* 上部グラデーション区切り */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
       <div className="max-w-5xl mx-auto">
         {/* 上部: ロゴ + ナビ */}
@@ -21,7 +21,7 @@ export default function Footer() {
               alt="focus company"
               width={128}
               height={32}
-              className="h-7 w-auto opacity-80 hover:opacity-100 transition-opacity"
+              className="h-7 w-auto opacity-70 hover:opacity-100 transition-opacity"
             />
           </Link>
 
@@ -31,7 +31,7 @@ export default function Footer() {
               href="https://www.instagram.com/focus_copilot/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/40 hover:text-white/70 transition-colors duration-300 flex items-center gap-2"
+              className="text-slate-400 hover:text-slate-600 transition-colors duration-300 flex items-center gap-2"
               aria-label="Instagram"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
@@ -42,14 +42,14 @@ export default function Footer() {
 
             <Link
               href="/privacy"
-              className="text-white/40 hover:text-white/70 transition-colors duration-300"
+              className="text-slate-400 hover:text-slate-600 transition-colors duration-300"
             >
               プライバシーポリシー
             </Link>
 
             <Link
               href="/legal"
-              className="text-white/40 hover:text-white/70 transition-colors duration-300"
+              className="text-slate-400 hover:text-slate-600 transition-colors duration-300"
             >
               特定商取引法に基づく表記
             </Link>
@@ -57,11 +57,11 @@ export default function Footer() {
         </div>
 
         {/* 区切り線 */}
-        <div className="h-px bg-white/[0.06] mb-8" />
+        <div className="h-px bg-slate-100 mb-8" />
 
         {/* コピーライト */}
-        <p className="text-center text-white/25 text-xs tracking-wide">
-          &copy; 2025 focus company All Rights Reserved.
+        <p className="text-center text-slate-300 text-xs tracking-wide">
+          &copy; 2026 合同会社focus All Rights Reserved.
         </p>
       </div>
     </footer>

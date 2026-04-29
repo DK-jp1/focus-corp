@@ -20,28 +20,28 @@ const notoSansJP = Noto_Sans_JP({
 
 // メタデータ定義
 export const metadata: Metadata = {
-  title: "focus company | AIで、働き方が変わる。",
+  title: "合同会社focus | もう、1人で決めなくていい。",
   description:
-    "長崎県佐世保市の個人事業主・サロン・企業向け AI導入・業務効率化・ウェブサイト制作。月20万円の人件費を月2万円に。focus companyがAIであなたのビジネスを加速させます。",
+    "あなた専用のAI参謀チームを構築。copilot roomで経営判断を加速。長崎県佐世保市発、AI導入・業務効率化・SNSマーケティング支援。",
   keywords: [
     "AI導入",
+    "AI経営参謀",
+    "copilot room",
     "業務効率化",
     "長崎",
-    "ウェブサイト制作",
-    "チャットボット",
-    "focus company",
+    "合同会社focus",
     "長崎県",
     "佐世保市",
-    "個人事業主",
-    "サロン",
+    "AI参謀",
+    "FLARE",
   ],
   openGraph: {
-    title: "focus company | AIで、働き方が変わる。",
+    title: "合同会社focus | もう、1人で決めなくていい。",
     description:
-      "長崎県佐世保市の個人事業主・サロン・企業向け AI導入・業務効率化・ウェブサイト制作。月20万円の人件費を月2万円に。",
+      "あなた専用のAI参謀チームを構築。copilot roomで経営判断を加速。長崎県佐世保市発。",
     type: "website",
     locale: "ja_JP",
-    siteName: "focus company",
+    siteName: "合同会社focus",
   },
 };
 

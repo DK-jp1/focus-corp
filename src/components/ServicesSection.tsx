@@ -1,6 +1,6 @@
 /**
  * セクション9：サービス内容
- * section-dark + glass-card + グラデーション番号
+ * section-dark（ライトテーマ対応） + glass-card + グラデーション番号
  */
 
 // サービスデータ定義
@@ -14,54 +14,41 @@ interface ServiceItem {
 const SERVICES: ServiceItem[] = [
   {
     number: "01",
-    title: "ウェブサイト・ホームページ制作",
+    title: "copilot room",
     description:
-      "事業の顔となるウェブサイトを構築。24時間、あなたのビジネスを届けます。",
+      "あなた専用のAI経営参謀チーム。24時間365日、経営判断をサポートし続けます。",
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="url(#svc-grad)" viewBox="0 0 24 24" strokeWidth="1.5">
-        <defs><linearGradient id="svc-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#3B82F6" /><stop offset="100%" stopColor="#06B6D4" /></linearGradient></defs>
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <line x1="3" y1="9" x2="21" y2="9" />
-        <line x1="9" y1="21" x2="9" y2="9" />
+      <svg className="w-10 h-10" fill="none" stroke="url(#svc-grad1)" viewBox="0 0 24 24" strokeWidth="1.5">
+        <defs><linearGradient id="svc-grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#3B82F6" /><stop offset="100%" stopColor="#06B6D4" /></linearGradient></defs>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
   },
   {
     number: "02",
-    title: "チャットボット構築",
+    title: "FLARE",
     description:
-      "御社専用のAIチャットボットを作成。24時間、自動で顧客対応が可能に。",
+      "AI×SNSマーケティング。あなたの事業を最適なターゲットに届けます。",
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="url(#svc-grad2)" viewBox="0 0 24 24" strokeWidth="1.5">
         <defs><linearGradient id="svc-grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#3B82F6" /><stop offset="100%" stopColor="#06B6D4" /></linearGradient></defs>
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>
     ),
   },
   {
     number: "03",
-    title: "ショート動画制作",
+    title: "AI導入支援",
     description:
-      "SNSで目を引く高クオリティな動画を制作。Instagram、TikTok、YouTubeに対応。",
+      "業務効率化からカスタムAIツール構築まで。あなたのビジネスに最適なAI活用を提案します。",
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="url(#svc-grad3)" viewBox="0 0 24 24" strokeWidth="1.5">
         <defs><linearGradient id="svc-grad3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#3B82F6" /><stop offset="100%" stopColor="#06B6D4" /></linearGradient></defs>
-        <polygon points="23 7 16 12 23 17 23 7" />
-        <rect x="1" y="5" width="15" height="14" rx="2" />
-      </svg>
-    ),
-  },
-  {
-    number: "04",
-    title: "業務効率化ツール構築",
-    description:
-      "ヒアリングから最適なAIツールを設計・構築。予約受付、顧客フォロー、SNS投稿など煩雑な業務を自動化します。",
-    icon: (
-      <svg className="w-10 h-10" fill="none" stroke="url(#svc-grad4)" viewBox="0 0 24 24" strokeWidth="1.5">
-        <defs><linearGradient id="svc-grad4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#3B82F6" /><stop offset="100%" stopColor="#06B6D4" /></linearGradient></defs>
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
       </svg>
     ),
   },
@@ -70,20 +57,20 @@ const SERVICES: ServiceItem[] = [
 export default function ServicesSection() {
   return (
     <section id="services" className="section-dark section-glow-border corner-glow-tr py-32 md:py-44 px-6">
-      <div className="relative z-10 max-w-6xl mx-auto text-white">
+      <div className="relative z-10 max-w-6xl mx-auto text-navy">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-20">
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Service
           </p>
           <h2 className="text-3xl md:text-5xl font-black mb-5 text-shadow-sm">
-            事業を加速させる4つのサービス
+            3つのサービス
           </h2>
           <div className="decorative-line" />
         </div>
 
         {/* サービスカード */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {SERVICES.map((service, index) => (
             <div
               key={index}
@@ -96,7 +83,7 @@ export default function ServicesSection() {
               </span>
 
               {/* アイコン */}
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white/5 mb-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-accent/5 mb-6">
                 {service.icon}
               </div>
 
@@ -104,7 +91,7 @@ export default function ServicesSection() {
               <h3 className="text-lg font-bold mb-4">{service.title}</h3>
 
               {/* 説明 */}
-              <p className="text-white/60 text-sm leading-relaxed font-light">
+              <p className="text-slate-500 text-sm leading-relaxed font-light">
                 {service.description}
               </p>
             </div>

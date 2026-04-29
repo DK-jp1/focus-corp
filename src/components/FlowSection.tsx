@@ -45,13 +45,13 @@ const STEPS: StepItem[] = [
 export default function FlowSection() {
   return (
     <section id="flow" className="section-dark section-glow-border corner-glow-tr py-32 md:py-44 px-6">
-      <div className="relative z-10 max-w-6xl mx-auto text-white">
+      <div className="relative z-10 max-w-6xl mx-auto text-navy">
         {/* 見出し */}
         <div className="fade-in-up text-center mb-20">
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Flow
           </p>
-          <h2 className="text-3xl md:text-5xl font-black mb-5 text-shadow-sm">導入の流れ</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-5">導入の流れ</h2>
           <div className="decorative-line" />
         </div>
 
@@ -64,7 +64,7 @@ export default function FlowSection() {
               data-delay={index * 150}
             >
               {/* STEP ラベル */}
-              <p className="text-xs tracking-[0.2em] text-white/40 uppercase mb-2">Step</p>
+              <p className="text-xs tracking-[0.2em] text-slate-400 uppercase mb-2">Step</p>
 
               {/* 番号 */}
               <p className="text-3xl font-black gradient-text mb-3">{step.number}</p>
@@ -73,7 +73,7 @@ export default function FlowSection() {
               <h3 className="text-lg font-bold mb-3">{step.title}</h3>
 
               {/* 説明 */}
-              <p className="text-gray-300 text-sm leading-relaxed font-light">
+              <p className="text-slate-500 text-sm leading-relaxed font-light">
                 {step.description}
               </p>
 

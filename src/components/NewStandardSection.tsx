@@ -1,7 +1,32 @@
-/**
- * セクション8：New Standard
- * section-light + corner-glow + グラデーション数字
- */
+import Image from "next/image";
+
+interface Sanbo {
+  title: string;
+  description: string;
+  image: string;
+}
+
+const SANBOS: Sanbo[] = [
+  {
+    title: "プロモーター",
+    description:
+      "あなたの事業を世界に広める参謀。SNS・広告・ブランディングをAIが支援。",
+    image: "/images/illustrations/promoter.png",
+  },
+  {
+    title: "ディレクター",
+    description:
+      "あなたの事業の方向性を整理する参謀。事業計画・数値管理・意思決定をAIが支援。",
+    image: "/images/illustrations/director.png",
+  },
+  {
+    title: "アドバイザー",
+    description:
+      "あなたの専門知識を補完する参謀。業界知識・法務・財務をAIが支援。",
+    image: "/images/illustrations/advisor.png",
+  },
+];
+
 export default function NewStandardSection() {
   return (
     <section id="new-standard" className="section-light section-glow-border corner-glow-bl py-32 md:py-44 px-6">
@@ -59,12 +84,44 @@ export default function NewStandardSection() {
 
         <div className="section-divider" />
 
+        {/* 3つのAI参謀 */}
+        <div className="fade-in-up mb-4">
+          <h3 className="text-2xl md:text-4xl font-black mb-4">3つのAI参謀</h3>
+          <p className="text-gray-500 font-light mb-10">あなたの経営を支える、専属AIチーム。</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {SANBOS.map((sanbo, index) => (
+              <div
+                key={index}
+                className="glass-card rounded-2xl p-6 text-center"
+              >
+                <div className="mb-4">
+                  <Image
+                    src={sanbo.image}
+                    alt={`${sanbo.title}のAI参謀イメージ`}
+                    width={400}
+                    height={300}
+                    className="w-full h-auto rounded-xl"
+                    sizes="(max-width: 768px) 100vw, 240px"
+                  />
+                </div>
+                <h4 className="text-lg font-bold text-navy mb-3">{sanbo.title}</h4>
+                <p className="text-sm text-gray-500 leading-relaxed font-light">
+                  {sanbo.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="section-divider" />
+
         <div className="fade-in-up">
           <h3 className="text-2xl md:text-4xl font-black mb-8">あなた専用のAIを。</h3>
           <p className="text-lg md:text-xl font-light leading-[2] text-gray-500 mb-8">
             あなたのビジョンを共に実現する、<br />経営者があなたの隣に。
           </p>
-          <p className="text-xl md:text-2xl font-bold gradient-text">focusが、その環境を届けます。</p>
+          <p className="text-xl md:text-2xl font-bold gradient-text">copilot roomが、その環境を届けます。</p>
         </div>
       </div>
     </section>

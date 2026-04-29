@@ -98,14 +98,14 @@ export default function ContactSection() {
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Contact
           </p>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-5 text-shadow-sm">
+          <h2 className="text-3xl md:text-5xl font-black text-navy mb-5">
             お問い合わせ
           </h2>
           <div className="decorative-line" />
         </div>
 
         {/* リード文 */}
-        <div className="fade-in-up text-center text-gray-300 font-light leading-relaxed mb-12">
+        <div className="fade-in-up text-center text-slate-500 font-light leading-relaxed mb-12">
           <p>「ちょっと話を聞いてみたい」</p>
           <p>それだけでも大丈夫です。</p>
           <p className="mt-4">まずはお気軽にご相談ください。</p>
@@ -116,10 +116,10 @@ export default function ContactSection() {
           {/* 左：Instagram誘導 */}
           <div className="fade-in-up flex flex-col items-center justify-center text-center">
             <div className="glass-card rounded-2xl p-8 sm:p-10 w-full">
-              <p className="text-white text-lg font-medium mb-6">
+              <p className="text-navy text-lg font-medium mb-6">
                 Instagram DMで相談
               </p>
-              <p className="text-gray-300 font-light mb-6">
+              <p className="text-slate-500 font-light mb-6">
                 「相談希望」と送るだけでOK
               </p>
               <a
@@ -145,8 +145,8 @@ export default function ContactSection() {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">送信完了</h3>
-                <p className="text-gray-300 font-light">
+                <h3 className="text-xl font-bold text-navy mb-2">送信完了</h3>
+                <p className="text-slate-500 font-light">
                   お問い合わせありがとうございます。
                   <br />
                   2営業日以内にご返信いたします。
