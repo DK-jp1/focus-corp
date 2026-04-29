@@ -45,14 +45,14 @@ const REASONS: ReasonItem[] = [
 
 export default function WhyFocusSection() {
   return (
-    <section id="why-focus" className="section-dark section-glow-border corner-glow-bl py-32 md:py-44 px-6">
+    <section id="why-focus" className="section-bluegray section-glow-border corner-glow-bl py-16 md:py-24 px-6">
       <div className="relative z-10 max-w-3xl mx-auto text-navy">
         {/* 見出し */}
-        <div className="fade-in-up text-center mb-20">
+        <div className="fade-in-up text-center mb-12">
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Why focus?
           </p>
-          <h2 className="text-3xl md:text-5xl font-black mb-5">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-wide mb-5">
             選ばれる5つの理由
           </h2>
           <div className="decorative-line" />
@@ -68,7 +68,7 @@ export default function WhyFocusSection() {
             >
               {/* 番号 */}
               <div className="flex-shrink-0">
-                <span className="text-4xl md:text-5xl font-black gradient-text">
+                <span className="text-4xl md:text-5xl font-bold gradient-text">
                   {reason.number}
                 </span>
               </div>

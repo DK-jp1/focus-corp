@@ -56,15 +56,15 @@ export default function WorksSection() {
   return (
     <section
       id="works"
-      className="section-light section-glow-border corner-glow-bl py-32 md:py-44 px-6"
+      className="section-white section-glow-border corner-glow-bl py-16 md:py-24 px-6"
     >
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* 見出し */}
-        <div className="fade-in-up text-center mb-20">
+        <div className="fade-in-up text-center mb-12">
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Our Business
           </p>
-          <h2 className="text-3xl md:text-5xl font-black text-navy mb-5">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-navy mb-5">
             自社運営事業
           </h2>
           <div className="decorative-line" />

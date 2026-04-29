@@ -44,14 +44,14 @@ const STEPS: StepItem[] = [
 
 export default function FlowSection() {
   return (
-    <section id="flow" className="section-dark section-glow-border corner-glow-tr py-32 md:py-44 px-6">
+    <section id="flow" className="section-white section-glow-border corner-glow-tr py-16 md:py-24 px-6">
       <div className="relative z-10 max-w-6xl mx-auto text-navy">
         {/* 見出し */}
-        <div className="fade-in-up text-center mb-20">
+        <div className="fade-in-up text-center mb-12">
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Flow
           </p>
-          <h2 className="text-3xl md:text-5xl font-black mb-5">導入の流れ</h2>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-wide mb-5">導入の流れ</h2>
           <div className="decorative-line" />
         </div>
 
@@ -67,7 +67,7 @@ export default function FlowSection() {
               <p className="text-xs tracking-[0.2em] text-slate-400 uppercase mb-2">Step</p>
 
               {/* 番号 */}
-              <p className="text-3xl font-black gradient-text mb-3">{step.number}</p>
+              <p className="text-3xl font-bold gradient-text mb-3">{step.number}</p>
 
               {/* タイトル */}
               <h3 className="text-lg font-bold mb-3">{step.title}</h3>

@@ -18,7 +18,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="section-light relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="section-white relative min-h-[85svh] flex flex-col items-center justify-center overflow-hidden"
     >
       <div className="hero-gradient-mesh absolute inset-0 z-[1]" />
       <div className="absolute inset-0 hero-dot-pattern z-[1]" />
@@ -41,7 +41,7 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-tight mb-8 text-navy">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-wide leading-tight mb-8 text-navy">
               {mainText.split("").map((char, i) => (
                 <span
                   key={i}
@@ -71,7 +71,7 @@ export default function HeroSection() {
             </p>
 
             <div
-              className="mt-14"
+              className="mt-10"
               style={{
                 opacity: isLoaded ? 1 : 0,
                 transform: isLoaded ? "translateY(0)" : "translateY(16px)",

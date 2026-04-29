@@ -56,14 +56,14 @@ const SERVICES: ServiceItem[] = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="section-dark section-glow-border corner-glow-tr py-32 md:py-44 px-6">
+    <section id="services" className="section-white section-glow-border corner-glow-tr py-16 md:py-24 px-6">
       <div className="relative z-10 max-w-6xl mx-auto text-navy">
         {/* 見出し */}
-        <div className="fade-in-up text-center mb-20">
+        <div className="fade-in-up text-center mb-12">
           <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
             Service
           </p>
-          <h2 className="text-3xl md:text-5xl font-black mb-5 text-shadow-sm">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-wide mb-5 text-shadow-sm">
             3つのサービス
           </h2>
           <div className="decorative-line" />
@@ -74,16 +74,16 @@ export default function ServicesSection() {
           {SERVICES.map((service, index) => (
             <div
               key={index}
-              className="fade-in-stagger glass-card rounded-2xl p-8 text-center"
+              className="fade-in-stagger service-card rounded-xl bg-white border border-slate-200 p-6 md:p-7 text-left shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
               data-delay={index * 150}
             >
               {/* 番号 */}
-              <span className="text-3xl font-black gradient-text block mb-4">
+              <span className="text-sm font-bold tracking-[0.16em] gradient-text block mb-4">
                 {service.number}
               </span>
 
               {/* アイコン */}
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-accent/5 mb-6">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-accent/5 mb-4">
                 {service.icon}
               </div>
 

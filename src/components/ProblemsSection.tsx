@@ -11,9 +11,9 @@ const PROBLEMS = [
 
 export default function ProblemsSection() {
   return (
-    <section id="problems" className="section-dark section-glow-border corner-glow-bl py-32 md:py-44 px-6">
+    <section id="problems" className="section-bluegray section-glow-border corner-glow-bl py-16 md:py-24 px-6">
       <div className="relative z-10 max-w-5xl mx-auto text-navy">
-        <h2 className="fade-in-up text-2xl sm:text-3xl md:text-5xl font-black text-center mb-20">
+        <h2 className="fade-in-up text-2xl md:text-3xl font-bold tracking-wide text-center mb-12">
           こんなお悩み、ありませんか？
         </h2>
 
@@ -29,9 +29,9 @@ export default function ProblemsSection() {
             />
           </div>
 
-          <ul className="flex-1 space-y-6">
+          <ul className="flex-1 space-y-3">
             {PROBLEMS.map((problem, index) => (
-              <li key={index} className="fade-in-stagger flex items-start gap-4" data-delay={index * 150}>
+              <li key={index} className="fade-in-stagger flex items-start gap-4 bg-white rounded-lg border border-slate-200 px-5 py-4 shadow-[0_2px_8px_rgba(0,0,0,0.04)]" data-delay={index * 150}>
                 <svg className="w-6 h-6 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20">
                   <defs>
                     <linearGradient id={`check-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
@@ -46,13 +46,13 @@ export default function ProblemsSection() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-lg md:text-xl font-light leading-relaxed text-slate-600">{problem}</span>
+                <span className="text-base md:text-lg font-light leading-relaxed text-slate-600">{problem}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        <p className="fade-in-up text-2xl md:text-3xl font-black text-center gradient-text">
+        <p className="fade-in-up text-2xl md:text-3xl font-bold tracking-wide text-center gradient-text">
           それらのお悩み、focusが解決します。
         </p>
       </div>
