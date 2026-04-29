@@ -1,10 +1,5 @@
-/**
- * セクション10：数字で見るfocus
- * section-light + gradient-text数字 + corner-glow
- */
 import CountUp from "./CountUp";
 
-/** 事業実績データ */
 const RESULTS = [
   { end: 9, suffix: "資格", label: "保有認定資格" },
   { end: 6, suffix: "社", label: "AI導入サポート" },
@@ -14,33 +9,25 @@ const RESULTS = [
 
 export default function ResultsSection() {
   return (
-    <section id="results" className="section-bluegray section-glow-border corner-glow-tr py-16 md:py-24 px-6">
-      <div className="relative z-10 max-w-5xl mx-auto">
-        {/* 見出し */}
-        <div className="fade-in-up text-center mb-12">
-          <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
-            Results
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-navy mb-5">
-            数字で見るfocus
-          </h2>
+    <section id="results" className="section section-bluegray section-glow-border corner-glow-tr">
+      <div className="section-container relative z-10">
+        <div className="fade-in-up mb-12 text-center">
+          <p className="label-en mb-4">Results</p>
+          <h2 className="section-title mb-5 text-dark">数字で見るfocus</h2>
           <div className="decorative-line" />
         </div>
 
-        {/* 数字カード */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+        <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
           {RESULTS.map((result, index) => (
             <div
-              key={index}
-              className="fade-in-stagger text-center"
-              data-delay={index * 200}
+              key={result.label}
+              className="lp-card fade-in-stagger p-6 text-center md:p-8"
+              data-delay={index * 140}
             >
-              <p className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-2">
+              <p className="mb-3 font-display text-4xl font-[900] leading-none text-accent md:text-5xl">
                 <CountUp end={result.end} suffix={result.suffix} />
               </p>
-              <p className="text-sm sm:text-base text-navy/60 font-light">
-                {result.label}
-              </p>
+              <p className="text-sm font-bold text-slate-600 md:text-base">{result.label}</p>
             </div>
           ))}
         </div>

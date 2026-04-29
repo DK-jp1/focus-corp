@@ -1,0 +1,28 @@
+HTTP/1.1 200 OK
+Date: Wed, 29 Apr 2026 08:59:05 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+CF-RAY: 9f3d1bd03ef4a9f1-NRT
+Cache-Control: public, max-age=0
+cross-origin-opener-policy: same-origin
+cross-origin-resource-policy: same-origin
+etag: W/"2b597-19cbc889a78"
+last-modified: Thu, 05 Mar 2026 05:46:35 GMT
+origin-agent-cluster: ?1
+referrer-policy: no-referrer
+rndr-id: 6c1a4373-de97-4d7a
+strict-transport-security: max-age=31536000; includeSubDomains
+vary: Origin
+vary: Accept-Encoding
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-permitted-cross-domain-policies: none
+x-render-origin-server: Render
+x-xss-protection: 0
+cf-cache-status: DYNAMIC
+Server: cloudflare
+alt-svc: h3=":443"; ma=86400
+

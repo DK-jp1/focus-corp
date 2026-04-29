@@ -1,9 +1,3 @@
-/**
- * セクション16：会社概要
- * section-light + corner-glow
- */
-
-// 会社情報データ定義
 interface CompanyInfo {
   label: string;
   value: string | string[];
@@ -41,57 +35,63 @@ const COMPANY_INFO: CompanyInfo[] = [
 
 export default function CompanySection() {
   return (
-    <section id="company" className="section-bluegray section-glow-border corner-glow-tr py-16 md:py-24 px-6">
-      <div className="relative z-10 max-w-3xl mx-auto">
-        {/* 見出し */}
-        <div className="fade-in-up text-center mb-12">
-          <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
-            Company
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-navy mb-5">
-            会社概要
-          </h2>
+    <section id="company" className="section section-bluegray section-glow-border corner-glow-tr">
+      <div className="section-container relative z-10">
+        <div className="fade-in-up mb-12 text-center">
+          <p className="label-en mb-4">Company</p>
+          <h2 className="section-title mb-5 text-dark">会社概要</h2>
           <div className="decorative-line" />
         </div>
 
-        {/* テーブル */}
-        <div className="fade-in-up glass-card-light rounded-2xl p-8 sm:p-12">
-          <table className="w-full">
-            <tbody>
-              {COMPANY_INFO.map((info, index) => (
-                <tr
-                  key={index}
-                  className="border-b border-navy/10 last:border-b-0"
-                >
-                  {/* ラベル */}
-                  <th className="text-left text-sm text-gray-500 font-medium py-5 pr-8 align-top w-32 sm:w-40">
-                    {info.label}
-                  </th>
-                  {/* 値 */}
-                  <td className="text-navy py-5 font-light">
-                    {Array.isArray(info.value) ? (
-                      <ul className="space-y-1">
-                        {info.value.map((item, i) => (
-                          <li key={i}>・{item}</li>
-                        ))}
-                      </ul>
-                    ) : info.label === "Instagram" ? (
-                      <a
-                        href="https://www.instagram.com/focus_copilot/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-accent hover:underline"
-                      >
-                        {info.value}
-                      </a>
-                    ) : (
-                      info.value
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr]">
+          <div className="lp-card fade-in-up">
+            <span className="badge-blue mb-5">Philosophy</span>
+            <h3 className="mb-5 text-2xl font-[900] leading-snug text-dark">
+              長崎を、若者が残りたいと思える街にする。
+            </h3>
+            <div className="body-copy space-y-4 text-slate-600">
+              <p>
+                focusは、地域の事業主が本業に集中できる環境をAIで届ける会社です。
+              </p>
+              <p>
+                正しく頑張る人が報われるように、業務を整理し、可能性を引き出し、長崎の事業を前へ進めます。
+              </p>
+            </div>
+          </div>
+
+          <div className="lp-card fade-in-up">
+            <table className="w-full">
+              <tbody>
+                {COMPANY_INFO.map((info) => (
+                  <tr key={info.label} className="border-b border-border last:border-b-0">
+                    <th className="w-28 py-4 pr-5 text-left align-top text-sm font-[900] text-slate-500 sm:w-40">
+                      {info.label}
+                    </th>
+                    <td className="py-4 text-dark">
+                      {Array.isArray(info.value) ? (
+                        <ul className="grid gap-1">
+                          {info.value.map((item) => (
+                            <li key={item}>・{item}</li>
+                          ))}
+                        </ul>
+                      ) : info.label === "Instagram" ? (
+                        <a
+                          href="https://www.instagram.com/focus_copilot/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-bold text-accent hover:underline"
+                        >
+                          {info.value}
+                        </a>
+                      ) : (
+                        info.value
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>

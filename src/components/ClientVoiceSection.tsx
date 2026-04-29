@@ -1,9 +1,3 @@
-/**
- * セクション14：クライアントの声
- * section-light + glass-card-light + 引用符装飾
- */
-
-// お客様の声データ定義
 interface VoiceItem {
   quote: string;
   location: string;
@@ -34,56 +28,48 @@ const VOICES: VoiceItem[] = [
 
 export default function ClientVoiceSection() {
   return (
-    <section id="client-voice" className="section-bluegray section-glow-border corner-glow-bl py-16 md:py-24 px-6">
-      <div className="relative z-10 max-w-5xl mx-auto">
-        {/* 見出し */}
-        <div className="fade-in-up text-center mb-12">
-          <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
-            Client Voice
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-navy mb-5">
-            お客様の声
-          </h2>
+    <section id="client-voice" className="section section-bluegray section-glow-border corner-glow-bl">
+      <div className="section-container relative z-10">
+        <div className="fade-in-up mb-12 text-center">
+          <p className="label-en mb-4">Client Voice</p>
+          <h2 className="section-title mb-5 text-dark">お客様の声</h2>
           <div className="decorative-line" />
         </div>
 
-        {/* お客様の声カード */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-3">
           {VOICES.map((voice, index) => (
-            <div
-              key={index}
-              className="fade-in-stagger glass-card-light rounded-2xl p-8 relative"
-              data-delay={index * 200}
+            <article
+              key={voice.quote}
+              className="lp-card fade-in-stagger relative p-8"
+              data-delay={index * 160}
             >
-              {/* 引用符装飾 */}
-              <span className="text-6xl gradient-text font-serif absolute top-4 left-6 leading-none opacity-30">
+              <span className="absolute left-6 top-4 font-display text-6xl font-[900] leading-none text-accent/20">
                 &ldquo;
               </span>
 
-              {/* 引用テキスト */}
-              <p className="text-navy text-lg font-medium mb-6 pt-8 leading-relaxed">
+              <p className="mb-7 pt-8 text-xl font-[900] leading-relaxed text-dark">
                 「{voice.quote}」
               </p>
 
-              {/* プロフィール */}
               <div className="flex items-center gap-3">
-                {/* ダミーアバター */}
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-400/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <div className="grid h-12 w-12 place-items-center rounded-full bg-accent text-white">
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.8}
+                      d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM12 14a7 7 0 0 0-7 7h14a7 7 0 0 0-7-7z"
+                    />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-navy font-medium">
+                  <p className="text-sm font-[900] text-dark">
                     {voice.location} / {voice.business}
                   </p>
-                  <p className="text-xs text-gray-400 font-light">
-                    {voice.demographics}
-                  </p>
+                  <p className="text-xs font-bold text-slate-500">{voice.demographics}</p>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

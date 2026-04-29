@@ -1,9 +1,3 @@
-/**
- * セクション13：導入の流れ
- * section-dark + glass-card + グラデーション番号
- */
-
-// ステップデータ定義
 interface StepItem {
   number: string;
   title: string;
@@ -13,77 +7,56 @@ interface StepItem {
 const STEPS: StepItem[] = [
   {
     number: "01",
-    title: "無料相談",
-    description: "DMまたはお問い合わせフォームからお気軽にご連絡ください。",
+    title: "お問い合わせ",
+    description: "フォームまたはInstagram DMから、現在の悩みをそのままお送りください。",
   },
   {
     number: "02",
     title: "ヒアリング",
-    description:
-      "現在のお悩み・課題をお聞かせください。オンラインまたは対面で対応いたします。",
+    description: "業務の流れ、困っている作業、目指したい状態をオンラインで整理します。",
   },
   {
     number: "03",
-    title: "ご提案",
-    description:
-      "ヒアリング内容をもとに、最適なサービス・ツールをご提案します。",
+    title: "提案",
+    description: "優先順位、導入範囲、費用感を明確にし、最初に進める施策を決めます。",
   },
   {
     number: "04",
     title: "構築・導入",
-    description:
-      "ご契約後、システムの構築を開始。最短2週間で導入可能です。",
+    description: "copilot roomや業務AIを構築し、現場で使える形に整えて導入します。",
   },
   {
     number: "05",
     title: "運用サポート",
-    description:
-      "導入後も安心のサポート体制。使い方のご説明、改善提案を行います。",
+    description: "導入後の改善、使い方の相談、追加機能の調整まで継続して支援します。",
   },
 ];
 
 export default function FlowSection() {
   return (
-    <section id="flow" className="section-white section-glow-border corner-glow-tr py-16 md:py-24 px-6">
-      <div className="relative z-10 max-w-6xl mx-auto text-navy">
-        {/* 見出し */}
-        <div className="fade-in-up text-center mb-12">
-          <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
-            Flow
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-wide mb-5">導入の流れ</h2>
+    <section id="flow" className="section section-bluegray section-glow-border corner-glow-tr">
+      <div className="section-container relative z-10 text-dark">
+        <div className="fade-in-up mb-12 text-center">
+          <p className="label-en mb-4">Flow</p>
+          <h2 className="section-title mb-5">導入の流れ</h2>
           <div className="decorative-line" />
         </div>
 
-        {/* ステップ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="flow-list">
           {STEPS.map((step, index) => (
-            <div
-              key={index}
-              className="fade-in-stagger glass-card rounded-2xl p-6 relative text-center"
-              data-delay={index * 150}
+            <article
+              key={step.number}
+              className="flow-step fade-in-stagger"
+              data-delay={index * 120}
             >
-              {/* STEP ラベル */}
-              <p className="text-xs tracking-[0.2em] text-slate-400 uppercase mb-2">Step</p>
-
-              {/* 番号 */}
-              <p className="text-3xl font-bold gradient-text mb-3">{step.number}</p>
-
-              {/* タイトル */}
-              <h3 className="text-lg font-bold mb-3">{step.title}</h3>
-
-              {/* 説明 */}
-              <p className="text-slate-500 text-sm leading-relaxed font-light">
-                {step.description}
-              </p>
-
-              {/* 接続線（デスクトップ、最後以外） */}
-              {index < STEPS.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 -translate-y-1/2">
-                  <div className="w-full h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-40" />
-                </div>
-              )}
-            </div>
+              <div>
+                <span className="flow-step__badge">STEP {step.number}</span>
+              </div>
+              <div>
+                <h3 className="flow-step__title">{step.title}</h3>
+                <p className="flow-step__text">{step.description}</p>
+              </div>
+            </article>
           ))}
         </div>
       </div>

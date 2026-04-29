@@ -1,68 +1,81 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/**
- * フッター
- * ダークネイビー背景 + グラデーション区切り + 洗練レイアウト
- */
+const FOOTER_LINKS = [
+  { label: "サービス", href: "/#services" },
+  { label: "自社運営事業", href: "/#works" },
+  { label: "導入の流れ", href: "/#flow" },
+  { label: "よくある質問", href: "/#faq" },
+  { label: "会社概要", href: "/#company" },
+  { label: "お問い合わせ", href: "/#contact" },
+] as const;
+
 export default function Footer() {
   return (
-    <footer className="relative bg-[#0f172a] py-16 px-6">
-      {/* 上部グラデーション区切り */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
+    <footer className="site-footer">
+      <div className="section-container">
+        <div className="footer-grid">
+          {/* 左カラム */}
+          <div>
+            <Link href="/" className="mb-6 inline-block">
+              <Image
+                src="/images/logo.png"
+                alt="focus company"
+                width={148}
+                height={37}
+                className="h-9 w-auto invert"
+              />
+            </Link>
+            <p className="body-copy max-w-md text-white/70">
+              合同会社focusは、長崎県佐世保市発のAI導入支援会社です。copilot roomを中心に、地域事業者の業務効率化と経営判断を支援します。
+            </p>
+          </div>
 
-      <div className="max-w-5xl mx-auto">
-        {/* 上部: ロゴ + ナビ */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-8 mb-10">
-          {/* ロゴ */}
-          <Link href="/">
-            <Image
-              src="/images/logo.png"
-              alt="focus company"
-              width={128}
-              height={32}
-              className="h-7 w-auto opacity-70 hover:opacity-100 transition-opacity invert"
-            />
-          </Link>
+          {/* 中央カラム */}
+          <div>
+            <h2 className="footer-title">リンク</h2>
+            <nav aria-label="フッターナビゲーション">
+              {FOOTER_LINKS.map((link) => (
+                <Link key={link.href} href={link.href} className="footer-link">
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
-          {/* ナビゲーションリンク */}
-          <nav className="flex items-center gap-8 text-[13px]">
+          {/* 右カラム */}
+          <div>
+            <h2 className="footer-title">ご相談はこちら</h2>
+            <p className="body-copy mb-6 text-white/70">
+              「何からAI化すればいいかわからない」段階でも大丈夫です。まずは今の業務を整理します。
+            </p>
+            <a href="#contact" className="footer-contact-button">
+              お問い合わせする
+            </a>
             <a
               href="https://www.instagram.com/focus_copilot/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-slate-200 transition-colors duration-300 flex items-center gap-2"
-              aria-label="Instagram"
+              className="mt-5 block text-sm font-bold text-accent-cyan hover:text-white"
             >
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-              @focus_copilot
+              Instagram DM: @focus_copilot
             </a>
+          </div>
+        </div>
+      </div>
 
-            <Link
-              href="/privacy"
-              className="text-slate-400 hover:text-slate-200 transition-colors duration-300"
-            >
+      <div className="footer-bottom">
+        <div className="section-container flex flex-col gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left">
+          <p>&copy; 2026 合同会社focus All Rights Reserved.</p>
+          <div className="flex flex-wrap justify-center gap-5 md:justify-end">
+            <Link href="/privacy" className="hover:text-white">
               プライバシーポリシー
             </Link>
-
-            <Link
-              href="/legal"
-              className="text-slate-400 hover:text-slate-200 transition-colors duration-300"
-            >
+            <Link href="/legal" className="hover:text-white">
               特定商取引法に基づく表記
             </Link>
-          </nav>
+          </div>
         </div>
-
-        {/* 区切り線 */}
-        <div className="h-px bg-slate-700 mb-8" />
-
-        {/* コピーライト */}
-        <p className="text-center text-slate-300 text-xs tracking-wide">
-          &copy; 2026 合同会社focus All Rights Reserved.
-        </p>
       </div>
     </footer>
   );

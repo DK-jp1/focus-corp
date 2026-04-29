@@ -2,100 +2,82 @@
 
 import { useState } from "react";
 
-/** FAQデータ */
 const FAQ_ITEMS = [
   {
-    question: "AIって難しそう…使いこなせますか？",
+    question: "AIって難しそうです。使いこなせますか？",
     answer:
-      "ご安心ください。導入から運用まで、すべてサポートいたします。操作方法も丁寧にご説明します。",
+      "ご安心ください。導入から運用まで一緒に進めます。操作方法も、普段の業務に合わせてわかりやすく整理します。",
   },
   {
-    question: "うちみたいな小さいところでも大丈夫ですか？",
+    question: "うちのような小規模事業でも相談できますか？",
     answer:
-      "はい、大歓迎です。個人事業主・サロンオーナー様にこそ使っていただきたいサービスです。",
+      "はい。個人事業主、サロン、飲食店、整体院、士業など、小さなチームほどAI導入の効果が出やすい領域があります。",
   },
   {
     question: "パソコンが苦手でも使えますか？",
     answer:
-      "はい、使えます。60代の方でも安心して使えるよう、丁寧にサポートいたします。",
+      "使えます。難しい管理画面を前提にせず、LINE、Instagram、フォームなど普段使う導線に合わせて設計します。",
   },
   {
     question: "長崎県以外でも対応していますか？",
     answer:
-      "現在は長崎県限定でサービスを提供しております。今後、エリア拡大を予定しております。",
+      "オンラインで対応可能な内容は県外からもご相談いただけます。地域密着の訪問支援は長崎県内を中心に対応しています。",
   },
   {
     question: "相談だけでも大丈夫ですか？",
     answer:
-      "もちろんです。「ちょっと話を聞いてみたい」だけでもOKです。お気軽にご連絡ください。",
+      "もちろんです。まずは今の課題を整理し、AIで解決できること、まだ人がやるべきことを切り分けます。",
   },
   {
     question: "copilot roomとは何ですか？",
     answer:
-      "copilot roomは、あなた専用のAI経営参謀チームです。3つのAI参謀（プロモーター・ディレクター・アドバイザー）が24時間365日、経営判断をサポートします。",
+      "copilot roomは、あなた専用のAI経営参謀チームです。プロモーター、ディレクター、アドバイザーが、相談内容に応じて経営判断を支援します。",
   },
 ] as const;
 
-/**
- * セクション15：FAQ
- * section-dark + glass-card + アコーディオン
- */
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section id="faq" className="section-white section-glow-border corner-glow-bl py-16 md:py-24 px-6">
-      <div className="relative z-10 max-w-3xl mx-auto">
-        {/* 見出し */}
-        <div className="fade-in-up text-center mb-12">
-          <p className="label-en text-accent text-xs tracking-[0.3em] uppercase mb-4 font-medium">
-            FAQ
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-navy mb-5">
-            よくある質問
-          </h2>
+    <section id="faq" className="section section-white section-glow-border corner-glow-bl">
+      <div className="section-container relative z-10">
+        <div className="fade-in-up mb-12 text-center">
+          <p className="label-en mb-4">FAQ</p>
+          <h2 className="section-title mb-5 text-dark">よくある質問</h2>
           <div className="decorative-line" />
         </div>
 
-        {/* アコーディオン */}
-        <div className="space-y-4">
-          {FAQ_ITEMS.map((item, index) => (
-            <div
-              key={index}
-              className="fade-in-stagger glass-card rounded-xl overflow-hidden"
-              data-delay={index * 100}
-            >
-              {/* 質問部分 */}
-              <button
-                onClick={() => toggle(index)}
-                className="w-full flex items-center justify-between p-5 sm:p-6 text-left text-navy hover:bg-slate-50 transition-colors"
-                aria-expanded={openIndex === index}
-              >
-                <span className="text-sm sm:text-base font-bold pr-4">
-                  Q. {item.question}
-                </span>
-                {/* ＋/− アイコン */}
-                <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center gradient-text text-xl font-light transition-transform duration-300">
-                  {openIndex === index ? "−" : "＋"}
-                </span>
-              </button>
+        <div className="faq-list">
+          {FAQ_ITEMS.map((item, index) => {
+            const isOpen = openIndex === index;
 
-              {/* 回答部分 */}
+            return (
               <div
-                className={`accordion-content ${openIndex === index ? "open" : ""}`}
+                key={item.question}
+                className="faq-item fade-in-stagger"
+                data-delay={index * 90}
               >
-                <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-                  <p className="text-sm sm:text-base text-slate-500 font-light leading-relaxed">
-                    A. {item.answer}
-                  </p>
+                <button
+                  type="button"
+                  onClick={() => toggle(index)}
+                  className="faq-question"
+                  aria-expanded={isOpen}
+                >
+                  <span className="faq-q-icon">Q</span>
+                  <span className="faq-question-text">{item.question}</span>
+                  <span className={`faq-plus ${isOpen ? "is-open" : ""}`}>+</span>
+                </button>
+
+                <div className={`accordion-content ${isOpen ? "open" : ""}`}>
+                  <p className="faq-answer">A. {item.answer}</p>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

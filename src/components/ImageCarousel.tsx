@@ -12,6 +12,18 @@ import "swiper/css/effect-coverflow";
 /** 背景パーティクル数 */
 const PARTICLE_COUNT = 20;
 
+/** 描画時に乱数を使わないための固定パーティクル配置 */
+const PARTICLES = Array.from({ length: PARTICLE_COUNT }, (_, i) => {
+  const seed = i + 1;
+  const left = (seed * 37) % 100;
+  const top = (seed * 53) % 100;
+  const size = 2 + ((seed * 11) % 4);
+  const delay = (seed * 7) % 8;
+  const duration = 6 + ((seed * 5) % 6);
+
+  return { left, top, size, delay, duration };
+});
+
 /** カルーセルコンポーネントのプロパティ */
 interface ImageCarouselProps {
   /** スライド画像パス一覧 */
@@ -63,17 +75,17 @@ export default function ImageCarousel({ images, title, subtitle, id }: ImageCaro
 
       {/* 奥行きパーティクル */}
       <div className="absolute inset-0 z-[2] pointer-events-none">
-        {Array.from({ length: PARTICLE_COUNT }).map((_, i) => (
+        {PARTICLES.map((particle, i) => (
           <div
             key={i}
             className="carousel-particle"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${2 + Math.random() * 3}px`,
-              height: `${2 + Math.random() * 3}px`,
-              animationDelay: `${Math.random() * 8}s`,
-              animationDuration: `${6 + Math.random() * 6}s`,
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              animationDelay: `${particle.delay}s`,
+              animationDuration: `${particle.duration}s`,
             }}
           />
         ))}
