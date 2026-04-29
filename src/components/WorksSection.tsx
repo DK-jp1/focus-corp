@@ -26,21 +26,6 @@ const BUSINESSES: BusinessItem[] = [
     image: "/images/illustrations/copilot-room.png",
     url: "#contact",
   },
-  {
-    title: "あっとみぃ",
-    category: "飲食事業・ECサイト運営",
-    description:
-      "focus companyが運営するポップコーン専門店。佐世保発のこだわりポップコーンをオンラインでお届けしています。",
-    details: [
-      "レスポンシブ対応のウェブサイト運営",
-      "オンライン注文システム",
-      "写真投稿・ギャラリー機能",
-      "LINE / Instagram連携",
-    ],
-    tech: ["Next.js", "Tailwind CSS", "Supabase"],
-    image: "/images/works/atomii.svg",
-    url: "https://focus-ai-iota.vercel.app",
-  },
 ];
 
 export default function WorksSection() {
@@ -53,7 +38,7 @@ export default function WorksSection() {
           <div className="decorative-line" />
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="mx-auto max-w-xl">
           {BUSINESSES.map((work, index) => (
             <a
               key={work.title}
