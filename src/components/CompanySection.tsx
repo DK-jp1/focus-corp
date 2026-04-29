@@ -25,9 +25,25 @@ const COMPANY_INFO: CompanyInfo[] = [
       "Google Data Analytics",
       "Google Project Management",
       "Google Cybersecurity",
+      "Google Analytics",
+      "Google Ads Search",
+      "Google Ads Video",
+      "Google Ads Apps",
+      "Google Ads Measurement",
+      "Anthropic Claude 101",
+      "Anthropic AI Fluency: Framework & Foundations",
+      "Anthropic Building with the Claude API",
+      "Anthropic Introduction to Claude Code",
+      "Anthropic Claude Code in Action",
+      "Anthropic Introduction to MCP",
+      "Anthropic Advanced MCP",
+      "Anthropic Claude on AWS Bedrock",
       "CertiProf Scrum Foundation (SFPC)",
       "CertiProf Cybersecurity Foundation (CSFPC)",
       "Microsoft AI Skills Challenge",
+      "Microsoft 生成AI認定",
+      "IPA SECURITY ACTION 一つ星",
+      "IPA SECURITY ACTION 二つ星",
     ],
   },
   { label: "Instagram", value: "@focus_copilot" },
@@ -47,7 +63,9 @@ export default function CompanySection() {
           <div className="lp-card fade-in-up">
             <span className="badge-blue mb-5">Philosophy</span>
             <h3 className="mb-5 text-2xl font-[900] leading-snug text-dark">
-              長崎を、若者が残りたいと思える街にする。
+              長崎県から選択肢を増やして、
+              <br />
+              若者が戻ってくる街づくりをしていく。
             </h3>
             <div className="body-copy space-y-4 text-slate-600">
               <p>

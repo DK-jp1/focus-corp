@@ -1,7 +1,7 @@
 import CountUp from "./CountUp";
 
 const RESULTS = [
-  { end: 9, suffix: "資格", label: "保有認定資格" },
+  { end: 25, suffix: "資格", label: "保有認定資格" },
   { end: 6, suffix: "社", label: "AI導入サポート" },
   { end: 12, suffix: "サイト", label: "自社運営ウェブサイト・LP" },
   { end: 1000, suffix: "万再生/月", label: "メディア運営実績" },
